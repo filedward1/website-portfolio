@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="h-full">
 
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,8 @@
   <link href="/style.css" rel="stylesheet">
 </head>
 
-<body class="font-mono">
+<body class="h-full overflow-hidden font-mono">
+  <div class="flex h-full flex-col">
   <!-- TITLE BAR -->
   <div class="bg-gray-800 flex flex-row px-4 py-1 justify-between items-center border-b border-gray-900">
     <div class="flex gap-2 items-center">
@@ -38,14 +39,38 @@
     </button>
     <!-- Contact -->
     <button class="flex flex-row px-3 py-2 gap-2 hover:bg-gray-600 items-center">
-      <div data-lucide="mail" class="text-blue-300 scale-80"></div>
+      <div data-lucide="mail" class="text-violet-300 scale-80"></div>
       <span class="text-gray-300">Contact.html</span>
     </button>
+  </div>
+
+  <!-- Main Content-->
+  <div class="flex flex-1 flex-row min-h-0">
+    <!-- Sidebar -->
+    <div class="flex h-full flex-col w-14 bg-gray-800 pt-8 pb-4 gap-6 text-gray-400 items-center">
+      <a href="https://github.com/filedward1" target="_blank">
+        <div data-lucide="github" class="scale-90 hover:text-gray-200 hover:scale-100 transition ease-in-out duration-300 active:scale-80"></div>
+      </a>
+      <a href="https://www.linkedin.com/in/fil-buitizon/" target="_blank">
+        <div data-lucide="linkedin" class="scale-90 hover:text-gray-200 hover:scale-100 transition ease-in-out duration-300 active:scale-80"></div>
+      </a>
+      <a href="https://www.facebook.com/pel.edward.x" target="_blank">
+        <div data-lucide="facebook" class="scale-90 hover:text-gray-200 hover:scale-100 transition ease-in-out duration-300 active:scale-80"></div>
+      </a>
+      <button data-lucide="sun-moon" class="mt-auto scale-90 hover:text-gray-200 hover:scale-100 transition ease-in-out duration-300 active:scale-80"></button>
+    </div>
+  </div>
   </div>
 </body>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <script>
   lucide.createIcons()
+  
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  console.log("Width:", width);
+  console.log("Height:", height);
 </script>
 
 </html>
