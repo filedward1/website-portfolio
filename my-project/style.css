@@ -13,5 +13,9 @@
   .syntax-punctuation { @apply text-gray-300; }
   .syntax-boolean { @apply text-purple-300; }
 	.syntax-bracket { @apply text-gray-400; }
-	.line-number { @apply text-gray-600; }
+	.line-number { @apply text-gray-600; text-align: right;}
+	.indent-1 { background-color: #2E2E21; }
+  .indent-2 { background-color: #252E25; }
+  .indent-3 { background-color: #2E252E; }
+  .indent-4 { background-color: #222D2D; }
 }

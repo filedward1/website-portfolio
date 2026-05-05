@@ -72,14 +72,62 @@
         <div class="max-w-4xl mx-auto">
           <!-- Html Code Display -->
           <div class="mb-8 animate-fade-in delay-1">
-            <div class="flex">
+            <div class="flex"> <!-- 1 <!DOCTYPE html> -->
               <span class="line-number px-4">1</span>
-              <span>
                 <span class="syntax-keyword">
-                  <span class="syntax-bracket">&lt;</span>!DOCTYPE</span>
-                <span class="syntax-tag">html<span class="syntax-bracket">&gt;</span></span>
-              </span>
+                  <span class="syntax-bracket">&lt;</span>!DOCTYPE</span>&nbsp
+                <span class="syntax-tag">html</span><span class="syntax-bracket">&gt;</span>
             </div>
+            <div class="flex"> <!-- 2 <html lang="en"> -->
+              <span class="line-number px-4">2</span>
+              <span class="syntax-bracket">&lt;
+              </span><span class="syntax-keyword">html</span>&nbsp
+              <span class="syntax-tag">lang</span><span class="syntax-variable">=</span><span class="syntax-string">"en"</span>
+              <span class="syntax-bracket">&gt;</span>
+            </div>
+            <div class="flex"> <!-- 3 <head> -->
+              <span class="line-number px-4">3</span>
+              <span class="syntax-bracket">&lt;
+              </span><span class="syntax-keyword">head</span>
+              <span class="syntax-bracket">&gt;</span>
+            </div>
+            <div class="flex"> <!-- 4 <meta charset="en"> -->
+              <span class="line-number px-4">4</span>
+              <span class="indent-1">&nbsp</span><span class="syntax-bracket">&lt;</span>
+              <span class="syntax-keyword">meta</span>&nbsp<span class="syntax-tag">charset</span><span class="syntax-variable">=</span><span class="syntax-string">"en"</span>
+              <span class="syntax-bracket">&gt;</span>
+            </div>
+            <div class="flex"> <!-- 5 <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+              <span class="line-number px-4">5</span>
+              <span class="indent-1">&nbsp</span><span class="syntax-bracket">&lt;</span>
+              <span class="syntax-keyword">meta</span>&nbsp<span class="syntax-tag">name</span><span class="syntax-variable">=</span><span class="syntax-string">"viewport"</span>&nbsp<span class="syntax-tag">content</span><span class="syntax-variable">=</span><span class="syntax-string">"width=device-width, initial-scale=1.0"</span>
+              <span class="syntax-bracket">&gt;</span>
+            </div>
+            <div class="flex"> <!-- 6 <link href="/style.css" rel="stylesheet"> -->
+              <span class="line-number px-4">6</span>
+              <span class="indent-1">&nbsp</span><span class="syntax-bracket">&lt;</span>
+              <span class="syntax-keyword">link</span>&nbsp<span class="syntax-tag">href</span><span class="syntax-variable">=</span><span class="syntax-string">"/style.css"</span>&nbsp<span class="syntax-tag">rel</span><span class="syntax-variable">=</span><span class="syntax-string">"stylesheet"</span>
+              <span class="syntax-bracket">&gt;</span>
+            </div>
+            <div class="flex"> <!-- 7 </head> -->
+              <span class="line-number px-4">7</span>
+              <span class="syntax-bracket">&lt;/</span><span class="syntax-keyword">head</span><span class="syntax-bracket">&gt;</span>
+            </div>
+            <div class="flex"> <!-- 8 &nbsp -->
+              <span class="line-number px-4">8</span>
+            </div>
+            <div class="flex"> <!-- 9 <body> -->
+              <span class="line-number px-4">9</span>
+              <span class="syntax-bracket">&lt;</span><span class="syntax-keyword">body</span><span class="syntax-bracket">&gt;</span>
+            </div>
+          </div>
+          
+          <!-- Information Card -->
+          <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+            <h2 class="text-xl font-bold text-white mb-4">Information Card</h2>
+            <p class="text-gray-300">
+              This is a simple information card component. You can customize it to display any kind of information you need.
+            </p>
           </div>
         </div>
       </div>
