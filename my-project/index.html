@@ -21,7 +21,7 @@
       </div>
       <span class="text-gray-500">my-portfolio.html</span>
       <div class="flex gap-3 items-center text-blue-500">
-        <div data-lucide="GitBranch"></div>
+        <i data-lucide="GitBranch" aria-hidden="true"></i>
         <span class="bg-[#388bfd1a] rounded-md p-2 items-center gap-2">main</span>
       </div>
     </div>
@@ -30,17 +30,17 @@
     <div class="bg-zinc-800 flex flex-row shadow-2xl items-center border-b border-black text-sm">
       <!-- About -->
       <button class="flex flex-row px-3 py-2 border-t gap-2 border-zinc-300 bg-zinc-700 items-center">
-        <div data-lucide="user" class="text-blue-500 scale-80"></div>
+        <i data-lucide="user" aria-hidden="true" class="text-blue-500 scale-80"></i>
         <span class="text-gray-300">about.html</span>
       </button>
       <!-- Projects -->
       <button class="flex flex-row px-3 py-2 gap-2 hover:bg-gray-600 items-center">
-        <div data-lucide="folder-code" class="text-yellow-300 scale-80"></div>
+        <i data-lucide="folder-code" aria-hidden="true" class="text-yellow-300 scale-80"></i>
         <span class="text-gray-300">projects.html</span>
       </button>
       <!-- Contact -->
       <button class="flex flex-row px-3 py-2 gap-2 hover:bg-gray-600 items-center">
-        <div data-lucide="mail" class="text-violet-300 scale-80"></div>
+        <i data-lucide="mail" aria-hidden="true" class="text-violet-300 scale-80"></i>
         <span class="text-gray-300">contact.html</span>
       </button>
     </div>
@@ -64,7 +64,7 @@
             <i class="fa-brands fa-facebook scale-120"></i>
           </a>
         </button>
-        <button data-lucide="sun-moon"
+        <button data-lucide="sun-moon" aria-hidden="true"
           class="mt-auto scale-90 hover:text-gray-200 transition ease-in-out duration-300"></button>
       </div>
       <!-- About Content -->
@@ -123,12 +123,32 @@
           </div>
           
           <!-- Information Card -->
-          <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
-            <h2 class="text-xl font-bold text-white mb-4">Information Card</h2>
-            <p class="text-gray-300">
-              This is a simple information card component. You can customize it to display any kind of information you need.
-            </p>
+          <div class="mb-8 animate-fade-in delay-1">
+            <div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700">
+              <div class="flex">
+                <img src="src/assets/Me.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mb-4 mr-5 shadow-lg">
+                <div class="flex flex-col">
+                  <h2 class="text-3xl font-bold syntax-string mb-2">Fil Edward F. Buitizon</h2>
+                  <h3 class="text-xl font-bold syntax-keyword mb-4">Aspiring Developer</h3>
+                  <p class="text-gray-300 mb-4">
+                    This is a simple information card component. You can customize it to display any kind of information you need.
+                  </p>
+                  <div class="flex gap-3">
+                    <div class="inline-flex items-center gap-2 text-green-600 bg-green-600/20 rounded shadow-lg px-3 py-1">
+                      <i data-lucide="check-circle" aria-hidden="true" class="scale-70"></i>
+                      <span>Available for work</span>
+                    </div>
+                    <div class="inline-flex items-center gap-2 text-zinc-600 bg-zinc-900 rounded px-3 py-1">
+                      <i data-lucide="map-pin" aria-hidden="true" class="scale-70"></i>
+                      <span>Manila, PH</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          
         </div>
       </div>
     </div>
