@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@layer components {
+  .syntax-keyword { @apply text-blue-400; }
+  .syntax-tag { @apply text-sky-300; }
+  .syntax-string { @apply text-orange-300; }
+  .syntax-number { @apply text-green-300; }
+  .syntax-comment { @apply text-gray-500 italic; }
+  .syntax-function { @apply text-yellow-300; }
+  .syntax-variable { @apply text-white; }
+  .syntax-attribute { @apply text-cyan-300; }
+  .syntax-operator { @apply text-pink-300; }
+  .syntax-punctuation { @apply text-gray-300; }
+  .syntax-boolean { @apply text-purple-300; }
+	.syntax-bracket { @apply text-gray-400; }
+	.line-number { @apply text-gray-600; }
+}
