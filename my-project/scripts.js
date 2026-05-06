@@ -14,9 +14,20 @@ async function loadContent(tabName) {
   if (!filePath) return;
 
   try {
+    // Fade out current content
+    contentContainer.classList.remove("fade-in");
+    contentContainer.classList.add("fade-out");
+
+    // Wait for fade-out to complete before loading new content
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
     const response = await fetch(filePath);
     const html = await response.text();
     contentContainer.innerHTML = html;
+    
+    // Remove fade-out and add fade-in animation
+    contentContainer.classList.remove("fade-out");
+    contentContainer.classList.add("fade-in");
     
     // Re-initialize lucide icons after loading new content
     if (window.lucide) {
@@ -25,6 +36,8 @@ async function loadContent(tabName) {
   } catch (error) {
     console.error(`Failed to load ${filePath}:`, error);
     contentContainer.innerHTML = `<p class="text-red-500">Error loading content</p>`;
+    contentContainer.classList.remove("fade-out");
+    contentContainer.classList.add("fade-in");
   }
 }
 
