@@ -18,4 +18,23 @@
   .indent-2 { background-color: #252E25; }
   .indent-3 { background-color: #2E252E; }
   .indent-4 { background-color: #222D2D; }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    @apply bg-zinc-800;
+  }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-zinc-600;
+  }
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-400;
+  }
+  .blink-cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
 }
