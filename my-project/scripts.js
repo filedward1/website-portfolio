@@ -16,6 +16,7 @@ const branchFiles = {
 };
 
 let currentBranch = "experience";
+let outsideClickBound = false;
 
 // Load content from external file
 async function loadContent(tabName) {
@@ -48,10 +49,10 @@ async function loadContent(tabName) {
       // Use setTimeout to ensure DOM is fully rendered
       setTimeout(() => {
         setupBranchSwitcher();
-        // For history tab, default to experience
+        // History already renders experience content from history.html,
+        // so avoid an extra fetch that causes the double-load effect.
         if (tabName === "history") {
           currentBranch = "experience";
-          loadBranchContent("experience");
         } else {
           // For achievements/certifications tabs, load the respective branch
           currentBranch = tabName;
@@ -101,11 +102,16 @@ function setupBranchSwitcher() {
 
   if (!branchesBtn) return; // Only setup if we're on history tab
 
-  branchesBtn.addEventListener("click", () => {
-    branchesMenu.classList.toggle("hidden");
-  });
+  if (!branchesBtn.dataset.bound) {
+    branchesBtn.addEventListener("click", () => {
+      branchesMenu.classList.toggle("hidden");
+    });
+    branchesBtn.dataset.bound = "true";
+  }
 
   branchOptions.forEach((option) => {
+    if (option.dataset.bound) return;
+
     option.addEventListener("click", () => {
       const branch = option.dataset.branch;
       currentBranch = branch;
@@ -114,14 +120,24 @@ function setupBranchSwitcher() {
       branchesMenu.classList.add("hidden");
       loadBranchContent(branch);
     });
+
+    option.dataset.bound = "true";
   });
 
-  // Close menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".branches-dropdown") && !e.target.closest("#branchesMenu")) {
-      branchesMenu.classList.add("hidden");
-    }
-  });
+  // Bind once and always resolve the current menu from the DOM.
+  if (!outsideClickBound) {
+    document.addEventListener("click", (e) => {
+      if (e.target.closest(".branches-dropdown") || e.target.closest("#branchesMenu")) {
+        return;
+      }
+
+      const menu = document.getElementById("branchesMenu");
+      if (menu) {
+        menu.classList.add("hidden");
+      }
+    });
+    outsideClickBound = true;
+  }
 }
 
 async function loadBranchContent(branch) {
