@@ -1,0 +1,128 @@
+<div class="animate-fade-in delay-1 text-[13px] leading-none text-zinc-200">
+  <div class="overflow-hidden border border-black/70 bg-[#1f1f1f] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+    <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
+      <div class="flex w-40 items-center gap-3">
+        <i data-lucide="certificate" aria-hidden="true" class="text-zinc-500"></i>
+      </div>
+      <div class="flex flex-1 items-center justify-center gap-2 relative">
+        <span class="font-semibold text-zinc-100">Branches:</span>
+        <div class="relative">
+          <button type="button" class="branches-dropdown flex items-center gap-3 rounded-md border border-zinc-600 bg-[#2c2c2c] px-3 py-1.5 text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition hover:border-zinc-500" id="branchesBtn">
+            <span id="branchesLabel">Certifications and Courses</span>
+            <i data-lucide="chevron-down" aria-hidden="true" class="text-zinc-400"></i>
+          </button>
+          <div id="branchesMenu" class="hidden absolute top-full mt-1 left-0 rounded-md border border-zinc-600 bg-[#2c2c2c] shadow-lg z-50 min-w-48">
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition first:rounded-t-md" data-branch="experience">
+              <i data-lucide="briefcase" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Experience
+            </button>
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700" data-branch="achievements">
+              <i data-lucide="award" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Achievements
+            </button>
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700 last:rounded-b-md" data-branch="certifications">
+              <i data-lucide="certificate" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Certifications and Courses
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-40 items-center justify-end gap-3 text-zinc-400">
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Search">
+          <i data-lucide="search" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Terminal">
+          <i data-lucide="terminal" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Settings">
+          <i data-lucide="settings" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Refresh">
+          <i data-lucide="refresh-cw" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/10 bg-[#1f1f1f] px-0 text-[12px] font-semibold text-zinc-100">
+      <div class="border-r border-white/8 px-2 py-3 text-center">Graph</div>
+      <div class="border-r border-white/8 px-4 py-3 text-center">Description</div>
+      <div class="border-r border-white/8 px-4 py-3 text-center">Date</div>
+      <div class="border-r border-white/8 px-4 py-3 text-center">Author</div>
+      <div class="px-4 py-3 text-center">Commit</div>
+    </div>
+
+    <div class="bg-[#1f1f1f]">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-sky-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-sky-500 shadow-[0_0_0_3px_rgba(56,189,248,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Bachelor of Science in Computer Science</p>
+            <p class="text-zinc-500 text-xs mt-1">University of the East, Manila</p>
+            <p class="text-zinc-400 text-xs mt-2">Currently in 4th year with focus on AI/ML applications, full-stack development, and entrepreneurship.</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Aug 2022 – Jun 2026</div>
+        <div class="px-4 py-2 text-right">UE Manila</div>
+        <div class="px-4 py-2 text-right font-medium">cert-01</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-amber-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-amber-500 shadow-[0_0_0_3px_rgba(217,119,6,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Technical Skills & Tools Proficiency</p>
+            <p class="text-zinc-500 text-xs mt-1">Professional Development</p>
+            <p class="text-zinc-400 text-xs mt-2">React Native, FastAPI, Python, TypeScript, Vue.js, Figma, Adobe Creative Suite, YOLO, Supabase, LLMs</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Ongoing</div>
+        <div class="px-4 py-2 text-right">Self</div>
+        <div class="px-4 py-2 text-right font-medium">cert-02</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-emerald-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-emerald-500"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">3rd Year Representative</p>
+            <p class="text-zinc-500 text-xs mt-1">UE College of Computer Studies and System Student Council</p>
+            <p class="text-zinc-400 text-xs mt-2">Leadership and student advocacy in academic and community initiatives</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">2024 – 2025</div>
+        <div class="px-4 py-2 text-right">UE CCSS</div>
+        <div class="px-4 py-2 text-right font-medium">cert-03</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-violet-500"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">4th Year Representative & CCSS Representative</p>
+            <p class="text-zinc-500 text-xs mt-1">Junior Philippine Computer Society & UE Zenith Esports</p>
+            <p class="text-zinc-400 text-xs mt-2">JPCS - UE Manila Chapter and Esports community leadership</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">2025 – 2026</div>
+        <div class="px-4 py-2 text-right">JPCS / Zenith</div>
+        <div class="px-4 py-2 text-right font-medium">cert-04</div>
+      </div>
+    </div>
+  </div>
+</div>

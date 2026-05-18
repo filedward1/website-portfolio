@@ -1,0 +1,279 @@
+<div class="animate-fade-in delay-1 text-[13px] leading-none text-zinc-200">
+  <div class="overflow-hidden border border-black/70 bg-[#1f1f1f] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+    <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
+      <div class="flex w-40 items-center gap-3">
+        <i data-lucide="award" aria-hidden="true" class="text-zinc-500"></i>
+      </div>
+      <div class="flex flex-1 items-center justify-center gap-2 relative">
+        <span class="font-semibold text-zinc-100">Branches:</span>
+        <div class="relative">
+          <button type="button" class="branches-dropdown flex items-center gap-3 rounded-md border border-zinc-600 bg-[#2c2c2c] px-3 py-1.5 text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition hover:border-zinc-500" id="branchesBtn">
+            <span id="branchesLabel">Achievements</span>
+            <i data-lucide="chevron-down" aria-hidden="true" class="text-zinc-400"></i>
+          </button>
+          <div id="branchesMenu" class="hidden absolute top-full mt-1 left-0 rounded-md border border-zinc-600 bg-[#2c2c2c] shadow-lg z-50 min-w-48">
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition first:rounded-t-md" data-branch="experience">
+              <i data-lucide="briefcase" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Experience
+            </button>
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700" data-branch="achievements">
+              <i data-lucide="award" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Achievements
+            </button>
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700 last:rounded-b-md" data-branch="certifications">
+              <i data-lucide="certificate" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Certifications and Courses
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-40 items-center justify-end gap-3 text-zinc-400">
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Search">
+          <i data-lucide="search" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Terminal">
+          <i data-lucide="terminal" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Settings">
+          <i data-lucide="settings" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Refresh">
+          <i data-lucide="refresh-cw" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/10 bg-[#1f1f1f] px-0 text-[12px] font-semibold text-zinc-100">
+      <div class="border-r border-white/8 px-2 py-3 text-center">Graph</div>
+      <div class="border-r border-white/8 px-4 py-3 text-center">Description</div>
+      <div class="border-r border-white/8 px-4 py-3 text-center">Date</div>
+      <div class="border-r border-white/8 px-4 py-3 text-center">Author</div>
+      <div class="px-4 py-3 text-center">Commit</div>
+    </div>
+
+    <div class="bg-[#1f1f1f]">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-emerald-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-emerald-500 shadow-[0_0_0_3px_rgba(52,192,123,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Grand Champion - Hackafest 2025</p>
+            <p class="text-zinc-500 text-xs mt-1">ClarfiAI - LLM-powered automated quiz generation system</p>
+            <p class="text-zinc-400 text-xs mt-2">Also won Best in UI, Best in Presentation, and Best in Prototype.</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">May 2025</div>
+        <div class="px-4 py-2 text-right">Hackafest</div>
+        <div class="px-4 py-2 text-right font-medium">award-01</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-sky-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-sky-500 shadow-[0_0_0_3px_rgba(56,189,248,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">3rd Place - PSC x RPC 2025 Philippine Startup Challenge X</p>
+            <p class="text-zinc-500 text-xs mt-1">Scaffl.ed - AI-driven adaptive learning platform for programming education</p>
+            <p class="text-zinc-400 text-xs mt-2">NCR Regional Pitching Competition winner</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Nov 2025</div>
+        <div class="px-4 py-2 text-right">PSC x RPC</div>
+        <div class="px-4 py-2 text-right font-medium">award-02</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-amber-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-amber-500"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Top 20 Finalist - National Innovation Challenge</p>
+            <p class="text-zinc-500 text-xs mt-1">Auscura - AI-powered bioacoustic poultry health monitoring</p>
+            <p class="text-zinc-400 text-xs mt-2">Advanced to national demo events showcasing potential impact on food security (SDG 2)</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Apr 2026</div>
+        <div class="px-4 py-2 text-right">Innovation</div>
+        <div class="px-4 py-2 text-right font-medium">award-03</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-violet-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-violet-500"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Global Presentation Selection - HCI International 2025</p>
+            <p class="text-zinc-500 text-xs mt-1">NutriXtract research paper selected for presentation</p>
+            <p class="text-zinc-400 text-xs mt-2">Gothenburg, Sweden - International conference on Human-Computer Interaction</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Jun 2025</div>
+        <div class="px-4 py-2 text-right">HCI Intl</div>
+        <div class="px-4 py-2 text-right font-medium">award-04</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-rose-500"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">NutriXtract – AAIML 2026 IEEE Conference</p>
+            <p class="text-zinc-500 text-xs mt-1">Published technical paper indexed in IEEE Xplore; presented at Chuo University, Tokyo, Japan</p>
+            <p class="text-zinc-400 text-xs mt-2">Enhancing Nutritional Data Literacy Through AI-Driven Pipeline for Object Detection and Label Interpretation</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Mar 2026</div>
+        <div class="px-4 py-2 text-right">IEEE AAIML</div>
+        <div class="px-4 py-2 text-right font-medium">award-05</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-orange-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-orange-500 shadow-[0_0_0_3px_rgba(249,115,22,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">DisruptorX (Auscura) – Top 20 National Finalist</p>
+            <p class="text-zinc-500 text-xs mt-1">IoT-based system detecting respiratory distress in poultry via AI sound analysis; qualified for National Demo Day on May 25, 2026</p>
+            <p class="text-zinc-400 text-xs mt-2">Advanced as Top 10 College Finalist to Top 20 nationwide (305+ applicants); addressing food security (SDG 2) with Team Chekken</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Dec 2025</div>
+        <div class="px-4 py-2 text-right">DisruptorX</div>
+        <div class="px-4 py-2 text-right font-medium">award-06</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-lime-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-lime-500 shadow-[0_0_0_3px_rgba(132,204,22,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Blue Hacks 2026 Hackathon</p>
+            <p class="text-zinc-500 text-xs mt-1">24-hour onsite hackathon focused on UN SDGs 7, 11, and 12; developed Reeco circular economy platform</p>
+            <p class="text-zinc-400 text-xs mt-2">Item-swapping ecosystem with trust-scoring and impact tracking for Metro Manila's daily waste management with Team Chekken</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Apr 2026</div>
+        <div class="px-4 py-2 text-right">CompSAt</div>
+        <div class="px-4 py-2 text-right font-medium">award-07</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-cyan-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-cyan-500 shadow-[0_0_0_3px_rgba(34,211,238,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">PSC X – NCR Regional Pitching Competition – 3rd Place</p>
+            <p class="text-zinc-500 text-xs mt-1">3rd Place (2nd Runner Up) in Philippines' flagship startup competition; developed Scaffl.ed</p>
+            <p class="text-zinc-400 text-xs mt-2">Tech-driven solution to socio-economic challenges; finalist in 10th annual PSC by DICT's ICT Industry Development Bureau</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Jan-Mar 26</div>
+        <div class="px-4 py-2 text-right">PSC / DICT</div>
+        <div class="px-4 py-2 text-right font-medium">award-08</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-indigo-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-indigo-500 shadow-[0_0_0_3px_rgba(99,102,241,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Codesprint – UE CCSS Hackafest – Grand Champion</p>
+            <p class="text-zinc-500 text-xs mt-1">Led Team GEMMA to Grand Championship victory; secured Best in UI, Best in Prototype, Best in Presentation</p>
+            <p class="text-zinc-400 text-xs mt-2">Outperformed 3 other teams for development of ClarfiAI at UE Manila's premier annual HackFest</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Nov 2025</div>
+        <div class="px-4 py-2 text-right">UE CCSS</div>
+        <div class="px-4 py-2 text-right font-medium">award-09</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-pink-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-pink-500 shadow-[0_0_0_3px_rgba(236,72,153,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">HCI International – NutriXtract Global Presentation</p>
+            <p class="text-zinc-500 text-xs mt-1">27th International Conference on Human-Computer Interaction; earned conditional acceptance for global presentation</p>
+            <p class="text-zinc-400 text-xs mt-2">Selected by nine-member international jury; positioned to compete for one of three major awards at Gothenburg, Sweden</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">May 2025</div>
+        <div class="px-4 py-2 text-right">HCI Intl</div>
+        <div class="px-4 py-2 text-right font-medium">award-10</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-teal-500"></span>
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-teal-500 shadow-[0_0_0_3px_rgba(20,184,166,0.18)]"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">AppCon 2024 – NutriXtract – Top 90 Qualifier</p>
+            <p class="text-zinc-500 text-xs mt-1">Philippines' premier web and mobile app competition; Top 90 National Qualifier from 178 teams nationwide</p>
+            <p class="text-zinc-400 text-xs mt-2">Recognized for technical innovation; supported by OTis Inc. (Japan), ITCareer.ph, and PSITE</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Apr 2025</div>
+        <div class="px-4 py-2 text-right">AppCon</div>
+        <div class="px-4 py-2 text-right font-medium">award-11</div>
+      </div>
+
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2">
+          <div class="relative flex h-full min-h-6 w-full justify-center">
+            <span class="relative mt-2 h-3 w-3 rounded-full bg-fuchsia-500"></span>
+          </div>
+        </div>
+        <div class="flex items-center px-4 py-2">
+          <div>
+            <p class="font-medium text-zinc-100">Hackada: KadaKareer × Home Credit – AI in UX for Fintech</p>
+            <p class="text-zinc-500 text-xs mt-1">High-stakes fintech competition leveraging Generative AI; designed HomeScape gamified loyalty ecosystem</p>
+            <p class="text-zinc-400 text-xs mt-2">Virtual home-building game with AI coaching to boost user retention; 98.7% correlation between gamification and buying intent</p>
+          </div>
+        </div>
+        <div class="px-4 py-2 text-right">Apr 2025</div>
+        <div class="px-4 py-2 text-right">KadaKareer</div>
+        <div class="px-4 py-2 text-right font-medium">award-12</div>
+      </div>
+    </div>
+  </div>
+</div>

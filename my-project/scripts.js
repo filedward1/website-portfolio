@@ -9,6 +9,14 @@ const tabFiles = {
   contact: "contact.html",
 };
 
+const branchFiles = {
+  experience: "experience.html",
+  achievements: "achievements.html",
+  certifications: "certifications.html",
+};
+
+let currentBranch = "experience";
+
 // Load content from external file
 async function loadContent(tabName) {
   const filePath = tabFiles[tabName];
@@ -33,6 +41,23 @@ async function loadContent(tabName) {
     // Re-initialize lucide icons after loading new content
     if (window.lucide) {
       window.lucide.createIcons();
+    }
+
+    // Setup branch switcher for any tab that has a branches dropdown
+    if (tabName === "history" || tabName === "achievements" || tabName === "certifications") {
+      // Use setTimeout to ensure DOM is fully rendered
+      setTimeout(() => {
+        setupBranchSwitcher();
+        // For history tab, default to experience
+        if (tabName === "history") {
+          currentBranch = "experience";
+          loadBranchContent("experience");
+        } else {
+          // For achievements/certifications tabs, load the respective branch
+          currentBranch = tabName;
+          loadBranchContent(tabName);
+        }
+      }, 100);
     }
   } catch (error) {
     console.error(`Failed to load ${filePath}:`, error);
@@ -66,6 +91,70 @@ tabButtons.forEach((button) => {
     }
   });
 });
+
+// Branch switching functionality (for history tab)
+function setupBranchSwitcher() {
+  const branchesBtn = document.getElementById("branchesBtn");
+  const branchesMenu = document.getElementById("branchesMenu");
+  const branchOptions = document.querySelectorAll(".branch-option");
+  const branchesLabel = document.getElementById("branchesLabel");
+
+  if (!branchesBtn) return; // Only setup if we're on history tab
+
+  branchesBtn.addEventListener("click", () => {
+    branchesMenu.classList.toggle("hidden");
+  });
+
+  branchOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const branch = option.dataset.branch;
+      currentBranch = branch;
+      const label = option.textContent.trim();
+      branchesLabel.textContent = label.split(/\s{2,}/)[0].trim() || label;
+      branchesMenu.classList.add("hidden");
+      loadBranchContent(branch);
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".branches-dropdown") && !e.target.closest("#branchesMenu")) {
+      branchesMenu.classList.add("hidden");
+    }
+  });
+}
+
+async function loadBranchContent(branch) {
+  const filePath = branchFiles[branch];
+  if (!filePath || !contentContainer) return;
+
+  try {
+    contentContainer.classList.remove("fade-in");
+    contentContainer.classList.add("fade-out");
+
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    const response = await fetch(filePath);
+    const html = await response.text();
+    contentContainer.innerHTML = html;
+
+    contentContainer.classList.remove("fade-out");
+    contentContainer.classList.add("fade-in");
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
+    // Re-setup branch switcher for any branch content that has a branches dropdown
+    setTimeout(() => {
+      setupBranchSwitcher();
+    }, 100);
+  } catch (error) {
+    console.error(`Failed to load ${filePath}:`, error);
+    contentContainer.classList.remove("fade-out");
+    contentContainer.classList.add("fade-in");
+  }
+}
 
 // Initialize with 'about' tab active
 setActiveTab("about");
