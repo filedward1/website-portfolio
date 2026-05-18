@@ -5,6 +5,7 @@ const contentContainer = document.getElementById("content-container");
 const tabFiles = {
   about: "about.html",
   projects: "projects.html",
+  history: "history.html",
   contact: "contact.html",
 };
 
