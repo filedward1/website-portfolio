@@ -68,3 +68,14 @@
     }
   }
 }
+@layer utilities {
+  /* Header-only borders for branch tables */
+  .header-row > div {
+    border-top: 1px solid #52525b;
+    border-bottom: 1px solid #52525b;
+  }
+
+  .header-row > div + div {
+    border-left: 1px solid #52525b;
+  }
+}
