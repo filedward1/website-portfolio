@@ -34,8 +34,16 @@
     .tooltip-link:hover::after {
       opacity: 1;
     }
+    .branch-row {
+      border: 1px solid #3f3f46; /* zinc-700 */
+      background: transparent;
+    }
+
+    .branch-row + .branch-row {
+      border-top: 0;
+    }
   </style>
-  <div class="overflow-hidden border border-black/70 bg-[#1f1f1f] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+  <div class="overflow-hidden border border-zinc-700 bg-zinc-800 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
     <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
       <div class="flex w-40 items-center gap-3">
         <i data-lucide="award" aria-hidden="true" class="text-zinc-500"></i>
@@ -76,7 +84,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/10 bg-[#1f1f1f] px-0 text-[12px] font-semibold text-zinc-100">
+    <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-zinc-700 bg-transparent px-0 text-[12px] font-semibold text-zinc-100">
       <div class="border-r border-white/8 px-2 py-3 text-center">Graph</div>
       <div class="border-r border-white/8 px-4 py-3 text-center">Description</div>
       <div class="border-r border-white/8 px-4 py-3 text-center">Date</div>
@@ -84,8 +92,8 @@
       <div class="px-4 py-3 text-center">Commit</div>
     </div>
 
-    <div class="bg-[#1f1f1f]">
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+    <div class="bg-transparent">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
         <div class="flex items-start justify-center px-2 py-2">
           <div class="relative flex h-full min-h-6 w-full justify-center">
             <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-amber-500"></span>
@@ -133,7 +141,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
         <div class="flex items-start justify-center px-2 py-2">
           <div class="relative flex h-full min-h-6 w-full justify-center">
             <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-violet-500"></span>
@@ -182,7 +190,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] bg-[#2a2a2a] border-b border-white/8 text-[12px] text-zinc-100">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
         <div class="flex items-start justify-center px-2 py-2">
           <div class="relative flex h-full min-h-6 w-full justify-center">
             <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-cyan-500"></span>
@@ -206,7 +214,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
         <div class="flex items-start justify-center px-2 py-2">
           <div class="relative flex h-full min-h-6 w-full justify-center">
             <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-indigo-500"></span>
@@ -232,7 +240,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] bg-[#2a2a2a] border-b border-white/8 text-[12px] text-zinc-100">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
         <div class="flex items-start justify-center px-2 py-2">
           <div class="relative flex h-full min-h-6 w-full justify-center">
             <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-pink-500"></span>
@@ -255,7 +263,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
         <div class="flex items-start justify-center px-2 py-2">
           <div class="relative flex h-full min-h-6 w-full justify-center">
             <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-teal-500"></span>
@@ -280,7 +288,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
         <div class="flex items-start justify-center px-2 py-2">
           <div class="relative flex h-full min-h-6 w-full justify-center">
             <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-pink-500"></span>

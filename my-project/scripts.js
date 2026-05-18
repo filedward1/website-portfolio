@@ -33,7 +33,42 @@ async function loadContent(tabName) {
 
     const response = await fetch(filePath);
     const html = await response.text();
-    contentContainer.innerHTML = html;
+    // If loading the history tab, keep a persistent outer card wrapper
+    if (tabName === "history") {
+      // create a consistent outer container matching projects card
+      contentContainer.innerHTML = `
+        <div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700">
+          <div id="branch-wrapper"></div>
+        </div>
+      `;
+
+      // parse fetched html and extract the branch container's inner content
+      try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        // find the first element whose class starts with 'branch-'
+        const branchEl = Array.from(doc.body.querySelectorAll("div")).find(el => el.className && el.className.trim().startsWith("branch-"));
+        // Also try to strip any outer card wrapper in history.html to avoid nested containers
+        const outerCard = doc.querySelector('.bg-zinc-800.rounded-lg') || doc.querySelector('.overflow-hidden');
+        let inner = html;
+        if (outerCard) {
+          inner = outerCard.innerHTML;
+        } else if (branchEl) {
+          // If branchEl contains its own inner wrapper, strip that too
+          const innerWrapper = branchEl.querySelector('.overflow-hidden, .bg-zinc-800');
+          inner = innerWrapper ? innerWrapper.innerHTML : branchEl.innerHTML;
+        }
+        const wrapper = document.getElementById("branch-wrapper");
+        if (wrapper) wrapper.innerHTML = inner;
+      } catch (err) {
+        // fallback to inserting raw html
+        const wrapper = document.getElementById("branch-wrapper");
+        if (wrapper) wrapper.innerHTML = html;
+      }
+    
+    } else {
+      contentContainer.innerHTML = html;
+    }
     
     // Remove fade-out and add fade-in animation
     contentContainer.classList.remove("fade-out");
@@ -152,7 +187,25 @@ async function loadBranchContent(branch) {
 
     const response = await fetch(filePath);
     const html = await response.text();
-    contentContainer.innerHTML = html;
+    // If currently viewing history tab and a persistent wrapper exists, insert only the branch inner content
+    const wrapper = contentContainer.querySelector("#branch-wrapper");
+    if (wrapper) {
+      try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const branchEl = Array.from(doc.body.querySelectorAll("div")).find(el => el.className && el.className.trim().startsWith("branch-"));
+        let inner = branchEl ? branchEl.innerHTML : html;
+        if (branchEl) {
+          const innerWrapper = branchEl.querySelector(".overflow-hidden, .bg-zinc-800");
+          if (innerWrapper) inner = innerWrapper.innerHTML;
+        }
+        wrapper.innerHTML = inner;
+      } catch (err) {
+        wrapper.innerHTML = html;
+      }
+    } else {
+      contentContainer.innerHTML = html;
+    }
 
     contentContainer.classList.remove("fade-out");
     contentContainer.classList.add("fade-in");
