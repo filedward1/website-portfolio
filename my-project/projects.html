@@ -1,3 +1,32 @@
+<style>
+	.tooltip-link {
+		position: relative;
+	}
+	
+	.tooltip-link::after {
+		content: attr(data-tooltip);
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: rgba(0, 0, 0, 0.8);
+		color: white;
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-size: 12px;
+		white-space: nowrap;
+		margin-bottom: 8px;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0s;
+		z-index: 10;
+	}
+	
+	.tooltip-link:hover::after {
+		opacity: 1;
+	}
+</style>
+
 <!-- Projects Code Display -->
 <div class="mb-8 animate-fade-in delay-1">
 	<div class="flex">
@@ -36,13 +65,13 @@
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">YOLO</span>
 					</div>
 					<div class="flex gap-3">
-						<a href="https://canva.link/5qvu3ox9qdc8rl5" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Poster">
+						<a href="https://canva.link/5qvu3ox9qdc8rl5" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Poster">
 							<i data-lucide="image-square" class="w-5 h-5"></i>
 						</a>
-						<a href="https://nutrixtract.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Website">
+						<a href="https://nutrixtract.vercel.app/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Website">
 							<i data-lucide="globe" class="w-5 h-5"></i>
 						</a>
-						<a href="https://github.com/SeanArnisto/nutrivision-frontend-main" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Github">
+						<a href="https://github.com/SeanArnisto/nutrivision-frontend-main" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Repository">
 							<i data-lucide="folder-git-2" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -75,7 +104,7 @@
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">EdTech</span>
 					</div>
 					<div class="flex gap-3">
-						<a href="https://canva.link/ox7modfhmwpuijc" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Presentation">
+						<a href="https://canva.link/ox7modfhmwpuijc" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -108,7 +137,7 @@
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">Public Sector</span>
 					</div>
 					<div class="flex gap-3">
-						<a href="https://www.canva.com/design/DAHCI9qqZ14/hIAMkawVEfCayZ8JCkmoWQ/view?utm_content=DAHCI9qqZ14&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Presentation">
+						<a href="https://www.canva.com/design/DAHCI9qqZ14/hIAMkawVEfCayZ8JCkmoWQ/view?utm_content=DAHCI9qqZ14&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -141,10 +170,10 @@
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">B2G</span>
 					</div>
 					<div class="flex gap-3">
-						<a href="https://canva.link/6d5agd37jlh3sfb" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Presentation">
+						<a href="https://canva.link/6d5agd37jlh3sfb" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
-						<a href="https://github.com/compsat/bh26-Chekken" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Github">
+						<a href="https://github.com/compsat/bh26-Chekken" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Repository">
 							<i data-lucide="folder-git-2" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -177,7 +206,7 @@
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">Figma</span>
 					</div>
 					<div class="flex gap-3">
-						<a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Presentation">
+						<a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -210,10 +239,10 @@
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">Education</span>
 					</div>
 					<div class="flex gap-3">
-						<a href="https://canva.link/c0chxdkdk5bmhtx" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Presentation">
+						<a href="https://canva.link/c0chxdkdk5bmhtx" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
-						<a href="https://github.com/filedward1/frontend-hackathon" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="Github">
+						<a href="https://github.com/filedward1/frontend-hackathon" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Repository">
 							<i data-lucide="folder-git-2" class="w-5 h-5"></i>
 						</a>
 					</div>

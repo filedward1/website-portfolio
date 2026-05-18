@@ -7,6 +7,33 @@
     .branch-certifications .grid > div:first-child span:last-child {
       box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18) !important;
     }
+
+    .tooltip-link {
+      position: relative;
+    }
+    
+    .tooltip-link::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      margin-bottom: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0s;
+      z-index: 10;
+    }
+    
+    .tooltip-link:hover::after {
+      opacity: 1;
+    }
   </style>
   <div class="overflow-hidden border border-black/70 bg-[#1f1f1f] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
     <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
@@ -74,7 +101,7 @@
         </div>
         <div class="px-4 py-2 text-right">May 18, 2026</div>
         <div class="px-4 py-2 text-right">Cognitive Class (IBM)</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/IBM%20PY0101EN%20Certificate%20_%20Cognitive%20Class.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">course-01</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/IBM%20PY0101EN%20Certificate%20_%20Cognitive%20Class.pdf" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">course-01</a></div>
       </div>
 
       <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
@@ -93,7 +120,7 @@
         </div>
         <div class="px-4 py-2 text-right">January 17, 2026</div>
         <div class="px-4 py-2 text-right">DataCamp</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Introduction%20to%20SQL.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">course-02</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Introduction%20to%20SQL.pdf" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">course-02</a></div>
       </div>
 
       <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
@@ -112,7 +139,7 @@
         </div>
         <div class="px-4 py-2 text-right">January 13, 2026</div>
         <div class="px-4 py-2 text-right">DataCamp</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Introduction%20to%20Python%20for%20Developers.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">course-03</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Introduction%20to%20Python%20for%20Developers.pdf" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">course-03</a></div>
       </div>
 
       <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 text-[12px] text-zinc-100">
@@ -131,7 +158,7 @@
         </div>
         <div class="px-4 py-2 text-right">January 10, 2026</div>
         <div class="px-4 py-2 text-right">DataCamp</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Introduction%20to%20Python.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">course-04</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Introduction%20to%20Python.pdf" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">course-04</a></div>
       </div>
 
       <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] text-[12px] text-zinc-100">
@@ -150,7 +177,7 @@
         </div>
         <div class="px-4 py-2 text-right">January 10, 2026</div>
         <div class="px-4 py-2 text-right">DataCamp</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Understanding%20Prompt%20Engineering.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">course-05</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Data%20Camp%20Understanding%20Prompt%20Engineering.pdf" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">course-05</a></div>
       </div>
 
       <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] border-b border-white/8 bg-[#2a2a2a] text-[12px] text-zinc-100">
@@ -169,7 +196,7 @@
         </div>
         <div class="px-4 py-2 text-right">October 2024</div>
         <div class="px-4 py-2 text-right">Certiport</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Certiport%20Python.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">cert-01</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Certiport%20Python.pdf" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">cert-01</a></div>
       </div>
 
       <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] bg-[#2a2a2a] text-[12px] text-zinc-100">
@@ -188,7 +215,7 @@
         </div>
         <div class="px-4 py-2 text-right">April 2024</div>
         <div class="px-4 py-2 text-right">Ground Gurus</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Basic%20Java%20Programming%20Java%20Core%20and%20Object-Oriented%20Programming%20Certificte.png" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">cert-03</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Basic%20Java%20Programming%20Java%20Core%20and%20Object-Oriented%20Programming%20Certificte.png" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">cert-03</a></div>
       </div>
 
       <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] text-[12px] text-zinc-100">
@@ -206,7 +233,7 @@
         </div>
         <div class="px-4 py-2 text-right">January 2024</div>
         <div class="px-4 py-2 text-right">Ground Gurus</div>
-        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Web%20Development%20for%20Beginners%20with%20HTML,%20CSS%20and%20Javascript%20Certifcate.png" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">cert-02</a></div>
+        <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Web%20Development%20for%20Beginners%20with%20HTML,%20CSS%20and%20Javascript%20Certifcate.png" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Cert">cert-02</a></div>
       </div>
     </div>
   </div>

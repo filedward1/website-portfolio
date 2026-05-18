@@ -7,6 +7,33 @@
     .branch-achievements .grid > div:first-child span:last-child {
       box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.18) !important;
     }
+
+    .tooltip-link {
+      position: relative;
+    }
+    
+    .tooltip-link::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      margin-bottom: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0s;
+      z-index: 10;
+    }
+    
+    .tooltip-link:hover::after {
+      opacity: 1;
+    }
   </style>
   <div class="overflow-hidden border border-black/70 bg-[#1f1f1f] shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
     <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
@@ -76,8 +103,8 @@
         <div class="px-4 py-2 text-right">Innovation</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://www.facebook.com/share/p/1Cm5zZYrUq/" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">fb-post-01</a>
-            <a href="https://www.canva.com/design/DAHCI9qqZ14/hIAMkawVEfCayZ8JCkmoWQ/view?utm_content=DAHCI9qqZ14&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">presentation-01</a>
+            <a href="https://www.facebook.com/share/p/1Cm5zZYrUq/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post">fb-post-01</a>
+            <a href="https://www.canva.com/design/DAHCI9qqZ14/hIAMkawVEfCayZ8JCkmoWQ/view?utm_content=DAHCI9qqZ14&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation">presentation-01</a>
           </div>
         </div>
       </div>
@@ -100,8 +127,8 @@
         <div class="px-4 py-2 text-right">CompSAt</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://www.facebook.com/photo.php?fbid=1478265517333040&set=a.713782820447984&type=3&rdid=OQkbF0spAEob8kNC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1NCDfgsSTb%2F" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">fb-post-02</a>
-            <a href="https://canva.link/6d5agd37jlh3sfb" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">presentation-03</a>
+            <a href="https://www.facebook.com/photo.php?fbid=1478265517333040&set=a.713782820447984&type=3&rdid=OQkbF0spAEob8kNC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1NCDfgsSTb%2F" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post">fb-post-02</a>
+            <a href="https://canva.link/6d5agd37jlh3sfb" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation">presentation-03</a>
           </div>
         </div>
       </div>
@@ -124,8 +151,8 @@
         <div class="px-4 py-2 text-right">IEEE AAIML</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://ieeexplore.ieee.org/document/11498227" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">publication-01</a>
-            <a href="https://canva.link/wmv02fuvpco3fnd" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">presentation-02</a>
+            <a href="https://ieeexplore.ieee.org/document/11498227" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Publication">publication-01</a>
+            <a href="https://canva.link/wmv02fuvpco3fnd" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation">presentation-02</a>
           </div>
         </div>
       </div>
@@ -148,9 +175,9 @@
         <div class="px-4 py-2 text-right">KadaKareer</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://www.facebook.com/share/p/1HbisNuhY1/" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">fb-post-05</a>
-            <a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">presentation-07</a>
-            <a href="https://drive.google.com/drive/folders/1jCv_z-BxNqu7NLbcBBsuKEQ7cnmBCYl2?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">submission-file-02</a>
+            <a href="https://www.facebook.com/share/p/1HbisNuhY1/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post">fb-post-05</a>
+            <a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation">presentation-07</a>
+            <a href="https://drive.google.com/drive/folders/1jCv_z-BxNqu7NLbcBBsuKEQ7cnmBCYl2?usp=sharing" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Submission">submission-file-02</a>
           </div>
         </div>
       </div>
@@ -173,8 +200,8 @@
         <div class="px-4 py-2 text-right">PSC / DICT</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://www.facebook.com/share/p/18ZCYK6vQN/" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">fb-post-03</a>
-            <a href="https://canva.link/ox7modfhmwpuijc" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">presentation-04</a>
+            <a href="https://www.facebook.com/share/p/18ZCYK6vQN/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post">fb-post-03</a>
+            <a href="https://canva.link/ox7modfhmwpuijc" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation">presentation-04</a>
           </div>
         </div>
       </div>
@@ -197,10 +224,10 @@
         <div class="px-4 py-2 text-right">UE CCSS</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://www.facebook.com/share/p/1CoH884T3H/" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">champion-post-01</a>
-            <a href="https://www.facebook.com/share/p/1YyjPSr1vD/" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">minor-award-01</a>
-            <a href="https://canva.link/c0chxdkdk5bmhtx" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">presentation-05</a>
-            <a href="https://github.com/filedward1/frontend-hackathon" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">github-01</a>
+            <a href="https://www.facebook.com/share/p/1CoH884T3H/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post">champion-post-01</a>
+            <a href="https://www.facebook.com/share/p/1YyjPSr1vD/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post">minor-award-01</a>
+            <a href="https://canva.link/c0chxdkdk5bmhtx" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation">presentation-05</a>
+            <a href="https://github.com/filedward1/frontend-hackathon" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Repository">github-01</a>
           </div>
         </div>
       </div>
@@ -223,7 +250,7 @@
         <div class="px-4 py-2 text-right">HCI Intl</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://drive.google.com/drive/folders/1tHny2pw-aCs6gDdXX4oHjIbLr66Za0Ui?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">video-presentation-01</a>
+            <a href="https://drive.google.com/drive/folders/1tHny2pw-aCs6gDdXX4oHjIbLr66Za0Ui?usp=sharing" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Video">video-presentation-01</a>
           </div>
         </div>
       </div>
@@ -246,9 +273,9 @@
         <div class="px-4 py-2 text-right">AppCon</div>
         <div class="px-4 py-2 text-right font-medium">
           <div class="flex flex-col items-end gap-1">
-            <a href="https://www.facebook.com/share/p/1HbisNuhY1/" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">fb-post-04</a>
-            <a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">presentation-06</a>
-            <a href="https://drive.google.com/drive/folders/1jCv_z-BxNqu7NLbcBBsuKEQ7cnmBCYl2?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white">submission-file-01</a>
+            <a href="https://www.facebook.com/share/p/1HbisNuhY1/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post">fb-post-04</a>
+            <a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation">presentation-06</a>
+            <a href="https://drive.google.com/drive/folders/1jCv_z-BxNqu7NLbcBBsuKEQ7cnmBCYl2?usp=sharing" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Submission">submission-file-01</a>
           </div>
         </div>
       </div>

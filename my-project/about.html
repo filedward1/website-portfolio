@@ -60,6 +60,34 @@
 
 <!-- Information Card -->
 <div class="mb-8 animate-fade-in delay-1">
+	<style>
+		.tooltip-link {
+			position: relative;
+		}
+		
+		.tooltip-link::after {
+			content: attr(data-tooltip);
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: rgba(0, 0, 0, 0.8);
+			color: white;
+			padding: 4px 8px;
+			border-radius: 4px;
+			font-size: 12px;
+			white-space: nowrap;
+			margin-bottom: 8px;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0s;
+			z-index: 10;
+		}
+		
+		.tooltip-link:hover::after {
+			opacity: 1;
+		}
+	</style>
 	<div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700">
 		<div class="flex">
 			<img src="src/assets/Me.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mb-4 mr-5 shadow-lg">
@@ -140,7 +168,7 @@
 			<p class="text-blue-400">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				Read: <a href="/src/assets/Buitizon_Resume.pdf" target="_blank"
-					class="hover:underline">Fil_Edward_Buitizon_Resume.pdf</a>
+					class="tooltip-link hover:underline" data-tooltip="Download Resume">Fil_Edward_Buitizon_Resume.pdf</a>
 			</p>
 			<span class="blink-cursor inline-block w-2 h-5 bg-[#34C759]"></span>
 		</div>
