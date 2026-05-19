@@ -90,6 +90,8 @@ async function loadContent(tabName) {
         // so avoid an extra fetch that causes the double-load effect.
         if (tabName === "history") {
           currentBranch = "experience";
+          // Load the experience branch content into the persistent wrapper by default
+          loadBranchContent("experience");
         } else {
           // For achievements/certifications tabs, load the respective branch
           currentBranch = tabName;
