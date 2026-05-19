@@ -78,6 +78,8 @@ async function loadContent(tabName) {
     if (window.lucide) {
       window.lucide.createIcons();
     }
+    // Ensure tooltip-link class and data-tooltip exist on dynamically loaded links
+    if (typeof ensureTooltipLinks === 'function') ensureTooltipLinks();
 
     // Setup branch switcher for any tab that has a branches dropdown
     if (tabName === "history" || tabName === "achievements" || tabName === "certifications") {
@@ -218,11 +220,28 @@ async function loadBranchContent(branch) {
     setTimeout(() => {
       setupBranchSwitcher();
     }, 100);
+    // Ensure tooltip-link class and data-tooltip exist on dynamically loaded links
+    if (typeof ensureTooltipLinks === 'function') ensureTooltipLinks();
   } catch (error) {
     console.error(`Failed to load ${filePath}:`, error);
     contentContainer.classList.remove("fade-out");
     contentContainer.classList.add("fade-in");
   }
+}
+
+// Helper: ensure links inside dynamic content have tooltip/hover behavior
+function ensureTooltipLinks() {
+  const container = document.getElementById('content-container');
+  const selectors = ['.branch-row a', '.flex a', '#content-container a', '.grid a'];
+  const nodes = new Set();
+  selectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach(n => nodes.add(n));
+  });
+
+  nodes.forEach(a => {
+    if (!a.classList.contains('tooltip-link')) a.classList.add('tooltip-link');
+    if (!a.dataset.tooltip) a.dataset.tooltip = a.title || 'View Link';
+  });
 }
 
 // Initialize with 'about' tab active
