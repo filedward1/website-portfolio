@@ -17,6 +17,66 @@ const branchFiles = {
 
 let currentBranch = "experience";
 let outsideClickBound = false;
+const ACTIVE_TAB_STORAGE_KEY = "portfolio-active-tab";
+const ACTIVE_BRANCH_STORAGE_KEY = "portfolio-active-branch";
+const EMAILJS_PUBLIC_KEY = "Q-XjxT_Chmj4tPCbs";
+const EMAILJS_SERVICE_ID = "service_tg3gq4s";
+const EMAILJS_TEMPLATE_ID = "template_bezj6vs";
+let emailJsInitialized = false;
+
+function initEmailJs() {
+  if (!window.emailjs) return false;
+  if (!emailJsInitialized) {
+    window.emailjs.init(EMAILJS_PUBLIC_KEY);
+    emailJsInitialized = true;
+  }
+  return true;
+}
+
+function setContactSendState(isSending, statusText, statusClass) {
+  const button = document.getElementById("sendMessageBtn");
+  const buttonLabel = document.getElementById("sendMessageLabel");
+  const status = document.getElementById("sendMessageStatus");
+
+  if (button) {
+    button.disabled = isSending;
+    button.classList.toggle("opacity-70", isSending);
+    button.classList.toggle("cursor-not-allowed", isSending);
+  }
+  if (buttonLabel) {
+    buttonLabel.textContent = isSending ? "Sending..." : "Send Message";
+  }
+  if (status) {
+    status.textContent = statusText;
+    status.className = `text-sm min-h-5 ${statusClass}`;
+  }
+}
+
+function sendMessage(e) {
+  e.preventDefault();
+
+  if (!initEmailJs()) {
+    setContactSendState(false, "Email service is not available right now.", "text-red-300");
+    return false;
+  }
+
+  const form = e.target;
+  setContactSendState(true, "Sending message...", "text-sky-300");
+
+  window.emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+    .then(() => {
+      setContactSendState(false, "Message sent successfully!", "text-emerald-300");
+      form.reset();
+    })
+    .catch((error) => {
+      console.error("EmailJS error:", error);
+      setContactSendState(false, "Failed to send message. Please try again later.", "text-red-300");
+    });
+
+  return false;
+}
+
+window.sendMessage = sendMessage;
 
 // Load content from external file
 async function loadContent(tabName) {
@@ -89,9 +149,10 @@ async function loadContent(tabName) {
         // History already renders experience content from history.html,
         // so avoid an extra fetch that causes the double-load effect.
         if (tabName === "history") {
-          currentBranch = "experience";
-          // Load the experience branch content into the persistent wrapper by default
-          loadBranchContent("experience");
+          // Restore the last selected branch, defaulting to experience.
+          const branchToLoad = currentBranch || "experience";
+          currentBranch = branchToLoad;
+          loadBranchContent(branchToLoad);
         } else {
           // For achievements/certifications tabs, load the respective branch
           currentBranch = tabName;
@@ -109,6 +170,8 @@ async function loadContent(tabName) {
 
 // Update active tab styling
 function setActiveTab(tabName) {
+  localStorage.setItem(ACTIVE_TAB_STORAGE_KEY, tabName);
+
   tabButtons.forEach((button) => {
     const isActive = button.dataset.tab === tabName;
 
@@ -154,6 +217,7 @@ function setupBranchSwitcher() {
     option.addEventListener("click", () => {
       const branch = option.dataset.branch;
       currentBranch = branch;
+      localStorage.setItem(ACTIVE_BRANCH_STORAGE_KEY, branch);
       const label = option.textContent.trim();
       branchesLabel.textContent = label.split(/\s{2,}/)[0].trim() || label;
       branchesMenu.classList.add("hidden");
@@ -246,8 +310,11 @@ function ensureTooltipLinks() {
   });
 }
 
-// Initialize with 'about' tab active
-setActiveTab("about");
+// Initialize with the last active tab if available
+const savedTab = localStorage.getItem(ACTIVE_TAB_STORAGE_KEY) || "about";
+const savedBranch = localStorage.getItem(ACTIVE_BRANCH_STORAGE_KEY) || "experience";
+currentBranch = savedBranch;
+setActiveTab(savedTab);
 
 // Log window dimensions (debug)
 const width = window.innerWidth;
