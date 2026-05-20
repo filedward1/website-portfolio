@@ -1,10 +1,107 @@
-<div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700 animate-fade-in delay-1">
-	<div class="inline-flex items-center gap-2 text-zinc-400 mb-4">
-		<i data-lucide="mail" aria-hidden="true" class="text-violet-300 scale-80"></i>
-		<span>contact.html</span>
-	</div>
-	<h2 class="text-3xl font-bold syntax-string mb-3">Contact section coming soon</h2>
-	<p class="text-gray-300">
-		The social links in the sidebar are active for now; this tab can be expanded later into a full contact panel.
-	</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+	<!-- Left: Contact methods -->
+	<aside class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700 animate-fade-in">
+		<div class="inline-flex items-center gap-2 text-zinc-400 mb-4">
+			<i data-lucide="mail" aria-hidden="true" class="text-violet-300"></i>
+			<span>Get in Touch</span>
+		</div>
+
+		<h3 class="text-2xl font-bold syntax-string mb-4">Get in Touch</h3>
+
+		<div class="space-y-4">
+			<!-- Email -->
+			<a href="mailto:filedwardb@gmail.com" class="flex items-center gap-4 bg-zinc-900/40 rounded-md p-4 border border-zinc-700 hover:bg-zinc-900/60">
+				<div class="w-10 h-10 rounded-md bg-zinc-800 flex items-center justify-center text-sky-300">
+					<i data-lucide="mail"></i>
+				</div>
+				<div class="text-zinc-300">
+					<div class="text-xs text-zinc-500">Email</div>
+					<div class="font-mono">filedwardb@gmail.com</div>
+				</div>
+			</a>
+
+			<!-- GitHub -->
+			<a href="#" class="flex items-center gap-4 bg-zinc-900/40 rounded-md p-4 border border-zinc-700 hover:bg-zinc-900/60">
+				<div class="w-10 h-10 rounded-md bg-zinc-800 flex items-center justify-center text-violet-300">
+					<i data-lucide="github"></i>
+				</div>
+				<div class="text-zinc-300">
+					<div class="text-xs text-zinc-500">GitHub</div>
+					<div class="font-mono">@placeholder</div>
+				</div>
+			</a>
+
+			<!-- LinkedIn -->
+			<a href="#" class="flex items-center gap-4 bg-zinc-900/40 rounded-md p-4 border border-zinc-700 hover:bg-zinc-900/60">
+				<div class="w-10 h-10 rounded-md bg-zinc-800 flex items-center justify-center text-sky-400">
+					<i data-lucide="linkedin"></i>
+				</div>
+				<div class="text-zinc-300">
+					<div class="text-xs text-zinc-500">LinkedIn</div>
+					<div class="font-mono">in/placeholder</div>
+				</div>
+			</a>
+
+			<!-- Twitter -->
+			<a href="#" class="flex items-center gap-4 bg-zinc-900/40 rounded-md p-4 border border-zinc-700 hover:bg-zinc-900/60">
+				<div class="w-10 h-10 rounded-md bg-zinc-800 flex items-center justify-center text-teal-300">
+					<i class="fa-brands fa-twitter scale-125"></i>
+				</div>
+				<div class="text-zinc-300">
+					<div class="text-xs text-zinc-500">Twitter</div>
+					<div class="font-mono">_pel_x</div>
+				</div>
+			</a>
+		</div>
+	</aside>
+
+	<!-- Right: Message form -->
+	<section class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700 animate-fade-in">
+		<div class="inline-flex items-center gap-2 text-zinc-400 mb-4">
+			<i data-lucide="send" aria-hidden="true" class="text-violet-300"></i>
+			<span>Send a Message</span>
+		</div>
+
+		<h3 class="text-2xl font-bold syntax-string mb-4">Send a Message</h3>
+
+		<form id="contactForm" class="space-y-4" onsubmit="return sendMessage(event)">
+			<div>
+				<label class="text-zinc-400 text-sm block mb-1">Name</label>
+				<input type="text" name="name" placeholder="Your name" class="w-full rounded-md p-3 bg-zinc-900/30 border border-zinc-700 text-zinc-200 placeholder:text-zinc-500" />
+			</div>
+
+			<div>
+				<label class="text-zinc-400 text-sm block mb-1">Email</label>
+				<input type="email" name="email" placeholder="your@email.com" class="w-full rounded-md p-3 bg-zinc-900/30 border border-zinc-700 text-zinc-200 placeholder:text-zinc-500" />
+			</div>
+
+			<div>
+				<label class="text-zinc-400 text-sm block mb-1">Message</label>
+				<textarea name="message" placeholder="Your message ..." class="w-full rounded-md p-3 bg-zinc-900/30 border border-zinc-700 text-zinc-200 placeholder:text-zinc-500 h-32"></textarea>
+			</div>
+
+			<div class="pt-2">
+				<button type="submit" class="w-full md:w-auto inline-flex items-center gap-3 justify-center bg-sky-400 hover:bg-sky-500 text-zinc-900 font-semibold rounded-md px-6 py-3">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+						<path d="M22 2L11 13" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+					Send Message
+				</button>
+			</div>
+		</form>
+	</section>
 </div>
+
+<script>
+	async function sendMessage(e) {
+		e.preventDefault();
+		// Minimal behavior: collect values and show a success toast. Integrate your backend here.
+		const f = document.getElementById('contactForm');
+		const data = new FormData(f);
+		const name = data.get('name') || 'Anonymous';
+		alert('Thanks, ' + name + '! Message sent (demo).');
+		f.reset();
+		return false;
+	}
+</script>
