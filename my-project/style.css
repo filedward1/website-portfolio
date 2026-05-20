@@ -1,5 +1,44 @@
 @import "tailwindcss";
 
+/* Bibata Modern Ice cursors (custom small web size) */
+html,
+body,
+* {
+  cursor: url('/cursors/bibata-ice-small/pointer-20.png') 3 1, auto;
+}
+
+a,
+button,
+summary,
+[role='button'],
+label[for],
+[tabindex]:not([tabindex='-1']),
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='checkbox'],
+input[type='radio'],
+input[type='range'],
+select {
+  cursor: url('/cursors/bibata-ice-small/link-20.png') 5 1, pointer;
+}
+
+input,
+textarea,
+[contenteditable='true'] {
+  cursor: url('/cursors/bibata-ice-small/text-20.png') 10 10, text;
+}
+
+/* Keep message box vertically resizable and theme the resize cursor */
+textarea {
+  resize: vertical;
+  cursor: url('/cursors/bibata-ice-small/text-20.png') 10 10, text;
+}
+
+textarea::-webkit-resizer {
+  cursor: url('/cursors/bibata-ice-small/resize-v-20.png') 10 10, ns-resize;
+}
+
 @layer components {
   .syntax-keyword { @apply text-blue-400; }
   .syntax-tag { @apply text-sky-300; }
