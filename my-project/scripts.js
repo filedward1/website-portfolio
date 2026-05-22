@@ -204,23 +204,45 @@ function setupBranchSwitcher() {
 
   if (!branchesBtn) return; // Only setup if we're on history tab
 
+  // Ensure the label reflects the currently selected branch
+  if (branchesLabel) {
+    const currentLabelOption = Array.from(branchOptions).find(opt => opt.dataset.branch === currentBranch);
+    if (currentLabelOption) {
+      branchesLabel.textContent = currentLabelOption.textContent.trim().split(/\s{2,}/)[0] || currentLabelOption.textContent.trim();
+    }
+  }
+
   if (!branchesBtn.dataset.bound) {
-    branchesBtn.addEventListener("click", () => {
-      branchesMenu.classList.toggle("hidden");
+    branchesBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (branchesMenu) branchesMenu.classList.toggle("hidden");
     });
     branchesBtn.dataset.bound = "true";
   }
 
   branchOptions.forEach((option) => {
+    // always clear any previous active styling
+    option.classList.remove("active-branch");
+
+    // mark active option
+    if (option.dataset.branch === currentBranch) {
+      option.classList.add("active-branch");
+      if (branchesLabel) branchesLabel.textContent = option.textContent.trim().split(/\s{2,}/)[0] || option.textContent.trim();
+    }
+
     if (option.dataset.bound) return;
 
-    option.addEventListener("click", () => {
+    option.addEventListener("click", (e) => {
+      e.stopPropagation();
       const branch = option.dataset.branch;
       currentBranch = branch;
       localStorage.setItem(ACTIVE_BRANCH_STORAGE_KEY, branch);
       const label = option.textContent.trim();
-      branchesLabel.textContent = label.split(/\s{2,}/)[0].trim() || label;
-      branchesMenu.classList.add("hidden");
+      if (branchesLabel) branchesLabel.textContent = label.split(/\s{2,}/)[0].trim() || label;
+      if (branchesMenu) branchesMenu.classList.add("hidden");
+      // visually mark active option
+      branchOptions.forEach(o => o.classList.remove("active-branch"));
+      option.classList.add("active-branch");
       loadBranchContent(branch);
     });
 

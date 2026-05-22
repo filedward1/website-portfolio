@@ -1,24 +1,318 @@
 <div class="branch-certifications animate-fade-in delay-1 text-[13px] leading-none text-zinc-200">
-  <style>
-    .tooltip-link { position: relative; }
-    .tooltip-link::after { content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background-color: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; margin-bottom: 8px; opacity: 0; pointer-events: none; transition: opacity 0s; z-index: 10; }
-    .tooltip-link:hover::after { opacity: 1; }
-  </style>
-  <div class="overflow-hidden bg-zinc-800 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
-    <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
-      <div class="flex w-40 items-center gap-3"><i data-lucide="scroll-text" aria-hidden="true" class="text-zinc-500"></i></div>
-      <div class="flex flex-1 items-center justify-center gap-2 relative"><span class="font-semibold text-zinc-100">Branches:</span></div>
-      <div class="flex w-40 items-center justify-end gap-3 text-zinc-400"></div>
+    <style>
+        .branch-certifications .grid>div:first-child span {
+            background-color: #a855f7 !important;
+        }
+
+        .branch-certifications .grid>div:first-child span:last-child {
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18) !important;
+        }
+
+        /* Override all dots and connecting lines to purple */
+        .branch-certifications .branch-row span {
+            background-color: #a855f7 !important;
+        }
+
+        .tooltip-link {
+            position: relative;
+        }
+
+        .tooltip-link::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            margin-bottom: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0s;
+            z-index: 10;
+        }
+
+        .tooltip-link:hover::after {
+            opacity: 1;
+        }
+    </style>
+    <div class="overflow-hidden bg-zinc-800 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+        <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
+            <div class="flex w-40 items-center gap-3">
+                <i data-lucide="scroll-text" aria-hidden="true" class="text-zinc-500"></i>
+            </div>
+            <div class="flex flex-1 items-center justify-center gap-2 relative">
+                <span class="font-semibold text-zinc-100">Branches:</span>
+                <div class="relative">
+                    <button type="button"
+                        class="branches-dropdown flex items-center gap-3 rounded-md border border-zinc-600 bg-[#2c2c2c] px-4 py-1.5 text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition hover:border-zinc-500 min-w-max"
+                        id="branchesBtn">
+                        <span id="branchesLabel">Certifications and Courses</span>
+                        <i data-lucide="chevron-down" aria-hidden="true" class="text-zinc-400"></i>
+                    </button>
+                    <div id="branchesMenu"
+                        class="hidden absolute top-full mt-1 left-0 rounded-md border border-zinc-600 bg-[#2c2c2c] shadow-lg z-50 min-w-48">
+                        <button type="button"
+                            class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition first:rounded-t-md"
+                            data-branch="experience">
+                            <i data-lucide="briefcase" aria-hidden="true" class="inline mr-2 text-zinc-400"
+                                style="vertical-align: -2px;"></i>Experience
+                        </button>
+                        <button type="button"
+                            class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700"
+                            data-branch="achievements">
+                            <i data-lucide="award" aria-hidden="true" class="inline mr-2 text-zinc-400"
+                                style="vertical-align: -2px;"></i>Achievements
+                        </button>
+                        <button type="button"
+                            class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700 last:rounded-b-md"
+                            data-branch="certifications">
+                            <i data-lucide="scroll-text" aria-hidden="true" class="inline mr-2 text-zinc-400"
+                                style="vertical-align: -2px;"></i>Certifications and Courses
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex w-40 items-center justify-end gap-3 text-zinc-400">
+                <button type="button" class="transition hover:text-zinc-100" aria-label="Search">
+                    <i data-lucide="search" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="transition hover:text-zinc-100" aria-label="Terminal">
+                    <i data-lucide="terminal" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="transition hover:text-zinc-100" aria-label="Settings">
+                    <i data-lucide="settings" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="transition hover:text-zinc-100" aria-label="Refresh">
+                    <i data-lucide="refresh-cw" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] header-row bg-transparent px-0 text-[12px] font-semibold text-zinc-100">
+            <div class="px-2 py-3 text-center">Graph</div>
+            <div class="px-4 py-3 text-center">Description</div>
+            <div class="px-4 py-3 text-center">Date</div>
+            <div class="px-4 py-3 text-center">Author</div>
+            <div class="px-4 py-3 text-center">Commit</div>
+        </div>
+
+        <div class="bg-transparent">
+            <div
+                class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row bg-transparent text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+                            style="background-color: #a855f7;"></span>
+                        <span class="relative mt-2 h-3 w-3 rounded-full" style="background-color: #a855f7;"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">Python 101 for Data Science</p>
+                        <p class="text-zinc-500 text-xs mt-1">Course</p>
+                        <p class="text-zinc-400 text-xs mt-2">Background: IBM-aligned foundational course for data
+                            science-focused Python workflows. Core competencies: Python basics, data analysis concepts,
+                            and essential libraries for data pipelines and cognitive computing.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">May 18, 2026</div>
+                <div class="px-4 py-2 text-right">Cognitive Class (IBM)</div>
+                <div class="px-4 py-2 text-right font-medium"><a
+                        href="src/assets/certs/IBM%20PY0101EN%20Certificate%20_%20Cognitive%20Class.pdf" target="_blank"
+                        rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">course-01</a></div>
+            </div>
+
+            <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+                            style="background-color: #a855f7;"></span>
+                        <span class="relative mt-2 h-3 w-3 rounded-full" style="background-color: #a855f7;"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">Introduction to SQL</p>
+                        <p class="text-zinc-500 text-xs mt-1">Certification</p>
+                        <p class="text-zinc-400 text-xs mt-2">Background: 2-hour technical course on relational database
+                            systems and structured querying. Core competencies: SQL data extraction, relational
+                            filtering, and data aggregation for insights.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">January 17, 2026</div>
+                <div class="px-4 py-2 text-right">DataCamp</div>
+                <div class="px-4 py-2 text-right font-medium"><a
+                        href="src/assets/certs/Data%20Camp%20Introduction%20to%20SQL.pdf" target="_blank"
+                        rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">course-02</a></div>
+            </div>
+
+            <div
+                class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row bg-transparent text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+                            style="background-color: #a855f7;"></span>
+                        <span class="relative mt-2 h-3 w-3 rounded-full"
+                            style="background-color: #a855f7; box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">Introduction to Python for Developers</p>
+                        <p class="text-zinc-500 text-xs mt-1">Certification</p>
+                        <p class="text-zinc-400 text-xs mt-2">Background: 3-hour developer-focused curriculum on
+                            efficient scripting and programmatic problem solving. Core competencies: modular code,
+                            control flow handling, and data structure manipulation.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">January 13, 2026</div>
+                <div class="px-4 py-2 text-right">DataCamp</div>
+                <div class="px-4 py-2 text-right font-medium"><a
+                        href="src/assets/certs/Data%20Camp%20Introduction%20to%20Python%20for%20Developers.pdf"
+                        target="_blank" rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">course-03</a></div>
+            </div>
+
+            <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+                            style="background-color: #a855f7;"></span>
+                        <span class="relative mt-2 h-3 w-3 rounded-full" style="background-color: #a855f7;"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">Introduction to Python</p>
+                        <p class="text-zinc-500 text-xs mt-1">Course</p>
+                        <p class="text-zinc-400 text-xs mt-2">Background: 4-hour core Python course covering syntax and
+                            data manipulation foundations. Core competencies: variables, lists, functions, and numerical
+                            computing with NumPy.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">January 10, 2026</div>
+                <div class="px-4 py-2 text-right">DataCamp</div>
+                <div class="px-4 py-2 text-right font-medium"><a
+                        href="src/assets/certs/Data%20Camp%20Introduction%20to%20Python.pdf" target="_blank"
+                        rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">course-04</a></div>
+            </div>
+
+            <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+                            style="background-color: #a855f7;"></span>
+                        <span class="relative mt-2 h-3 w-3 rounded-full" style="background-color: #a855f7;"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">Understanding Prompt Engineering</p>
+                        <p class="text-zinc-500 text-xs mt-1">Course</p>
+                        <p class="text-zinc-400 text-xs mt-2">Background: 1-hour course on practical interaction design
+                            for LLM and generative AI systems. Core competencies: prompt structuring, context
+                            management, and hallucination mitigation.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">January 10, 2026</div>
+                <div class="px-4 py-2 text-right">DataCamp</div>
+                <div class="px-4 py-2 text-right font-medium"><a
+                        href="src/assets/certs/Data%20Camp%20Understanding%20Prompt%20Engineering.pdf" target="_blank"
+                        rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">course-05</a></div>
+            </div>
+
+            <div
+                class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] bg-transparent text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+                            style="background-color: #a855f7;"></span>
+                        <span class="relative mt-2 h-3 w-3 rounded-full"
+                            style="background-color: #a855f7; box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">IT Specialist Certification - Python</p>
+                        <p class="text-zinc-500 text-xs mt-1">Certification</p>
+                        <p class="text-zinc-400 text-xs mt-2">Industry-recognized certification validating Python
+                            programming proficiency and applied coding standards.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">October 2024</div>
+                <div class="px-4 py-2 text-right">Certiport</div>
+                <div class="px-4 py-2 text-right font-medium"><a href="src/assets/certs/Certiport%20Python.pdf"
+                        target="_blank" rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">cert-01</a></div>
+            </div>
+
+            <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] bg-transparent text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2"
+                            style="background-color: #a855f7;"></span>
+                        <span class="relative mt-2 h-3 w-3 rounded-full"
+                            style="background-color: #a855f7; box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">Basic Java Programming - Java Core and Object-Oriented
+                            Programming</p>
+                        <p class="text-zinc-500 text-xs mt-1">Course</p>
+                        <p class="text-zinc-400 text-xs mt-2">Validated foundational Java and OOP competencies including
+                            classes, methods, encapsulation, and problem solving.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">April 2024</div>
+                <div class="px-4 py-2 text-right">Ground Gurus</div>
+                <div class="px-4 py-2 text-right font-medium"><a
+                        href="src/assets/certs/Basic%20Java%20Programming%20Java%20Core%20and%20Object-Oriented%20Programming%20Certificte.png"
+                        target="_blank" rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">cert-03</a></div>
+            </div>
+
+            <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] text-[12px] text-zinc-100">
+                <div class="flex items-start justify-center px-2 py-2">
+                    <div class="relative flex h-full min-h-6 w-full justify-center">
+                        <span class="relative mt-2 h-3 w-3 rounded-full"
+                            style="background-color: #a855f7; box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);"></span>
+                    </div>
+                </div>
+                <div class="flex items-center px-4 py-2">
+                    <div>
+                        <p class="font-medium text-zinc-100">Web Development for Beginners - HTML, CSS, and JavaScript
+                        </p>
+                        <p class="text-zinc-500 text-xs mt-1">Certification</p>
+                        <p class="text-zinc-400 text-xs mt-2">Completed beginner-to-intermediate web development
+                            training focused on semantic HTML, modern CSS, and JavaScript fundamentals.</p>
+                    </div>
+                </div>
+                <div class="px-4 py-2 text-right">January 2024</div>
+                <div class="px-4 py-2 text-right">Ground Gurus</div>
+                <div class="px-4 py-2 text-right font-medium"><a
+                        href="src/assets/certs/Web%20Development%20for%20Beginners%20with%20HTML,%20CSS%20and%20Javascript%20Certifcate.png"
+                        target="_blank" rel="noopener noreferrer"
+                        class="tooltip-link text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white"
+                        data-tooltip="View Cert">cert-02</a></div>
+            </div>
+        </div>
     </div>
-    <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] header-row bg-transparent px-0 text-[12px] font-semibold text-zinc-100"><div class="px-2 py-3 text-center">Graph</div><div class="px-4 py-3 text-center">Description</div><div class="px-4 py-3 text-center">Date</div><div class="px-4 py-3 text-center">Author</div><div class="px-4 py-3 text-center">Commit</div></div>
-    <div class="bg-transparent">
-      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
-        <div class="flex items-start justify-center px-2 py-2"><div class="relative flex h-full min-h-6 w-full justify-center"><span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-sky-500"></span><span class="relative mt-2 h-3 w-3 rounded-full bg-sky-500 shadow-[0_0_0_3px_rgba(56,189,248,0.18)]"></span></div></div>
-        <div class="flex items-center px-4 py-2"><div><p class="font-medium text-zinc-100">Certifications and Courses</p><p class="text-zinc-500 text-xs mt-1">Various online and workshop trainings</p><p class="text-zinc-400 text-xs mt-2">Completed courses in web development, UI/UX, and AI fundamentals.</p></div></div>
-        <div class="px-4 py-2 text-right">2023 - 2026</div>
-        <div class="px-4 py-2 text-right">Multiple</div>
-        <div class="px-4 py-2 text-right font-medium">cert-01</div>
-      </div>
-    </div>
-  </div>
 </div>
