@@ -1,0 +1,55 @@
+<div class="branch-achievements animate-fade-in delay-1 text-[13px] leading-none text-zinc-200">
+  <style>
+    .branch-achievements .grid > div:first-child span { background-color: #d946ef !important; }
+    .branch-achievements .grid > div:first-child span:last-child { box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.18) !important; }
+    .branch-achievements .branch-row span { background-color: #d946ef !important; }
+    .tooltip-link { position: relative; }
+    .tooltip-link::after { content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background-color: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; margin-bottom: 8px; opacity: 0; pointer-events: none; transition: opacity 0s; z-index: 10; }
+    .tooltip-link:hover::after { opacity: 1; }
+  </style>
+  <div class="overflow-visible bg-zinc-800 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+    <div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
+      <div class="flex w-40 items-center gap-3">
+        <i data-lucide="award" aria-hidden="true" class="text-zinc-500"></i>
+      </div>
+      <div class="flex flex-1 items-center justify-center gap-2 relative">
+        <span class="font-semibold text-zinc-100">Branches:</span>
+        <div class="relative">
+          <button type="button" class="branches-dropdown flex items-center gap-3 rounded-md border border-zinc-600 bg-[#2c2c2c] px-4 py-1.5 text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition hover:border-zinc-500 min-w-max" id="branchesBtn">
+            <span id="branchesLabel">Achievements</span>
+            <i data-lucide="chevron-down" aria-hidden="true" class="text-zinc-400"></i>
+          </button>
+          <div id="branchesMenu" class="hidden absolute top-full mt-1 left-0 rounded-md border border-zinc-600 bg-[#2c2c2c] shadow-lg z-50 min-w-48">
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition first:rounded-t-md" data-branch="experience">
+              <i data-lucide="briefcase" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Experience
+            </button>
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700" data-branch="achievements">
+              <i data-lucide="award" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Achievements
+            </button>
+            <button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700 last:rounded-b-md" data-branch="certifications">
+              <i data-lucide="scroll-text" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Certifications and Courses
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-40 items-center justify-end gap-3 text-zinc-400">
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Search"><i data-lucide="search" aria-hidden="true"></i></button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Terminal"><i data-lucide="terminal" aria-hidden="true"></i></button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Settings"><i data-lucide="settings" aria-hidden="true"></i></button>
+        <button type="button" class="transition hover:text-zinc-100" aria-label="Refresh"><i data-lucide="refresh-cw" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] header-row bg-transparent px-0 text-[12px] font-semibold text-zinc-100">
+      <div class="px-2 py-3 text-center">Graph</div><div class="px-4 py-3 text-center">Description</div><div class="px-4 py-3 text-center">Date</div><div class="px-4 py-3 text-center">Author</div><div class="px-4 py-3 text-center">Commit</div>
+    </div>
+    <div class="bg-transparent">
+      <div class="grid grid-cols-[58px_minmax(0,1fr)_150px_110px_95px] branch-row text-[12px] text-zinc-100">
+        <div class="flex items-start justify-center px-2 py-2"><div class="relative flex h-full min-h-6 w-full justify-center"><span class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2" style="background-color: #d946ef;"></span><span class="relative mt-2 h-3 w-3 rounded-full" style="background-color: #d946ef;"></span></div></div>
+        <div class="flex items-center px-4 py-2"><div><p class="font-medium text-zinc-100">DisruptorX (Auscura)</p><p class="text-zinc-500 text-xs mt-1">Auscura - AI-powered bioacoustic poultry health monitoring</p><p class="text-zinc-400 text-xs mt-2">Advanced to national demo events showcasing potential impact on food security (SDG 2)</p></div></div>
+        <div class="px-4 py-2 text-right">April 2026</div>
+        <div class="px-4 py-2 text-right">Innovation</div>
+        <div class="px-4 py-2 text-right font-medium"><div class="flex flex-col items-end gap-1"><a href="#" class="tooltip-link hover:underline text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Post" title="View Post">fb-post-01</a><a href="#" class="tooltip-link hover:underline text-zinc-100 underline decoration-zinc-100/60 underline-offset-2 hover:text-white" data-tooltip="View Presentation" title="View Presentation">presentation-01</a></div></div>
+      </div>
+    </div>
+  </div>
+</div>

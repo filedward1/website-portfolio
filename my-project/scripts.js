@@ -3,16 +3,16 @@ const tabButtons = Array.from(document.querySelectorAll("[data-tab]"));
 const contentContainer = document.getElementById("content-container");
 
 const tabFiles = {
-  about: "about.html",
-  projects: "projects.html",
-  history: "history.html",
-  contact: "contact.html",
+  about: "/about.html",
+  projects: "/projects.html",
+  history: "/history.html",
+  contact: "/contact.html",
 };
 
 const branchFiles = {
-  experience: "experience.html",
-  achievements: "achievements.html",
-  certifications: "certifications.html",
+  experience: "/experience.html",
+  achievements: "/achievements.html",
+  certifications: "/certifications.html",
 };
 
 let currentBranch = "experience";
