@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "lucide": "^0.577.0"
+  },
+  "scripts": {
+    "build": "cd my-project && npm run build",
+    "vercel-build": "cd my-project && npm run build",
+    "postinstall": "cd my-project && npm ci"
   }
 }
