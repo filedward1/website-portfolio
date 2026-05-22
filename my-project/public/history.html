@@ -1,2 +1,45 @@
-<!-- Branch content will be loaded here by scripts.js (loadBranchContent) -->
-<div id="history-branch-placeholder"></div>
+<div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700">
+	<div class="flex items-center justify-between border-b border-white/10 px-4 py-2 text-[12px] text-zinc-100">
+		<div class="flex w-40 items-center gap-3">
+			<i data-lucide="git-branch" aria-hidden="true" class="text-zinc-500"></i>
+		</div>
+		<div class="flex flex-1 items-center justify-center gap-2 relative">
+			<span class="font-semibold text-zinc-100">Branches:</span>
+			<div class="relative">
+				<button type="button" class="branches-dropdown flex items-center gap-3 rounded-md border border-zinc-600 bg-[#2c2c2c] px-4 py-1.5 text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition hover:border-zinc-500 min-w-max" id="branchesBtn">
+					<span id="branchesLabel">Experience</span>
+					<i data-lucide="chevron-down" aria-hidden="true" class="text-zinc-400"></i>
+				</button>
+				<div id="branchesMenu" class="hidden absolute top-full mt-1 left-0 rounded-md border border-zinc-600 bg-[#2c2c2c] shadow-lg z-50 min-w-48">
+					<button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition first:rounded-t-md" data-branch="experience">
+						<i data-lucide="briefcase" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Experience
+					</button>
+					<button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700" data-branch="achievements">
+						<i data-lucide="award" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Achievements
+					</button>
+					<button type="button" class="branch-option w-full text-left px-4 py-2 text-zinc-100 hover:bg-[#3c3c3c] transition border-t border-zinc-700 last:rounded-b-md" data-branch="certifications">
+						<i data-lucide="scroll-text" aria-hidden="true" class="inline mr-2 text-zinc-400" style="vertical-align: -2px;"></i>Certifications and Courses
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="flex w-40 items-center justify-end gap-3 text-zinc-400">
+			<button type="button" class="transition hover:text-zinc-100" aria-label="Search">
+				<i data-lucide="search" aria-hidden="true"></i>
+			</button>
+			<button type="button" class="transition hover:text-zinc-100" aria-label="Terminal">
+				<i data-lucide="terminal" aria-hidden="true"></i>
+			</button>
+			<button type="button" class="transition hover:text-zinc-100" aria-label="Settings">
+				<i data-lucide="settings" aria-hidden="true"></i>
+			</button>
+			<button type="button" class="transition hover:text-zinc-100" aria-label="Refresh">
+				<i data-lucide="refresh-cw" aria-hidden="true"></i>
+			</button>
+		</div>
+	</div>
+
+	<div id="branch-wrapper" class="mt-4">
+		<!-- Branch content will be injected here by scripts.js -->
+	</div>
+</div>
