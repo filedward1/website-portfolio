@@ -5,6 +5,6 @@
   "scripts": {
     "build": "cd my-project && npm run build",
     "vercel-build": "cd my-project && npm run build",
-    "postinstall": "cd my-project && npm ci"
+    "postinstall": "cd my-project && npm ci --legacy-peer-deps"
   }
 }
