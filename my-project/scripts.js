@@ -52,20 +52,100 @@ function setContactSendState(isSending, statusText, statusClass) {
   }
 }
 
+function triggerContactSuccessEffect() {
+  const button = document.getElementById("sendMessageBtn");
+
+  if (button) {
+    button.classList.add("send-message-success");
+  }
+
+  window.setTimeout(() => {
+    if (button) {
+      button.classList.remove("send-message-success");
+    }
+  }, 900);
+}
+
+function getContactFieldElements(form) {
+  return Array.from(form.querySelectorAll("[data-required-message]"));
+}
+
+function clearContactFieldError(field) {
+  const group = field.closest(".contact-field-group");
+  const popup = group ? group.querySelector(".contact-field-popup") : null;
+
+  field.classList.remove("border-rose-400", "ring-2", "ring-rose-400/25");
+  field.setAttribute("aria-invalid", "false");
+
+  if (popup) {
+    popup.textContent = "";
+    popup.classList.add("hidden");
+  }
+}
+
+function showContactFieldError(field, message) {
+  const group = field.closest(".contact-field-group");
+  const popup = group ? group.querySelector(".contact-field-popup") : null;
+
+  field.classList.add("border-rose-400", "ring-2", "ring-rose-400/25");
+  field.setAttribute("aria-invalid", "true");
+
+  if (popup) {
+    popup.textContent = message;
+    popup.classList.remove("hidden");
+  }
+}
+
+function validateContactForm(form) {
+  const fields = getContactFieldElements(form);
+  let firstInvalidField = null;
+
+  fields.forEach((field) => {
+    const value = field.value.trim();
+    const message = field.dataset.requiredMessage || "This field is required.";
+    const isEmail = field.type === "email";
+    const isValidEmail = !isEmail || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+    clearContactFieldError(field);
+
+    if (!value || !isValidEmail) {
+      if (!firstInvalidField) firstInvalidField = field;
+      showContactFieldError(field, message);
+    }
+  });
+
+  if (firstInvalidField) {
+    if (typeof firstInvalidField.scrollIntoView === "function") {
+      firstInvalidField.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+    if (typeof firstInvalidField.focus === "function") {
+      firstInvalidField.focus({ preventScroll: true });
+    }
+  }
+
+  return !firstInvalidField;
+}
+
 function sendMessage(e) {
   e.preventDefault();
+
+  const form = e.target;
+  if (!validateContactForm(form)) {
+    setContactSendState(false, "Please complete the highlighted fields.", "text-rose-300");
+    return false;
+  }
 
   if (!initEmailJs()) {
     setContactSendState(false, "Email service is not available right now.", "text-red-300");
     return false;
   }
 
-  const form = e.target;
   setContactSendState(true, "Sending message...", "text-sky-300");
 
   window.emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
     .then(() => {
       setContactSendState(false, "Message sent successfully!", "text-emerald-300");
+      triggerContactSuccessEffect();
       form.reset();
     })
     .catch((error) => {
@@ -77,6 +157,29 @@ function sendMessage(e) {
 }
 
 window.sendMessage = sendMessage;
+
+document.addEventListener("input", (event) => {
+  const field = event.target;
+  if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+    if (field.matches("[data-required-message]")) {
+      clearContactFieldError(field);
+    }
+  }
+});
+
+document.addEventListener("blur", (event) => {
+  const field = event.target;
+  if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+    if (field.matches("[data-required-message]")) {
+      const value = field.value.trim();
+      const isEmail = field.type === "email";
+      const isValidEmail = !isEmail || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      if (value && isValidEmail) {
+        clearContactFieldError(field);
+      }
+    }
+  }
+}, true);
 
 // Load content from external file
 async function loadContent(tabName) {
