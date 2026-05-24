@@ -70,12 +70,20 @@
 		width: 88px;
 		height: 88px;
 		flex: 0 0 88px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
+	/* Keep logos fully visible and centered on desktop by containing them */
 	.project-card img {
-		width: 88px;
-		height: 88px;
-		object-fit: cover;
+		width: auto;
+		max-width: 72px;
+		height: auto;
+		max-height: 72px;
+		object-fit: contain;
+		display: block;
+		margin: 0 auto;
 	}
 
 	.project-header {
@@ -147,7 +155,7 @@
 
 	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
 		<div class="flex items-start gap-5">
-			<div class="w-16 h-16 flex items-center justify-center shrink-0">
+			<div class="w-16 h-16 flex items-center justify-center scale-200">
 				<img src="src/assets/proj-logo/Scaffled%20logo.svg" alt="Scaffl.ed" class="w-14 h-14 object-contain" />
 			</div>
 			<div class="flex-1 min-w-0">
