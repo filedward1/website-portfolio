@@ -87,6 +87,36 @@
         .tooltip-link:hover::after {
             opacity: 1;
         }
+        /* Desktop / Tablet: align description under title/subtitle while keeping image on left */
+        @media (min-width: 768px) {
+            .info-card {
+                display: block;
+            }
+
+            .info-card__header {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .info-card__image {
+                width: 88px;
+                height: 88px;
+                flex: 0 0 88px;
+            }
+
+            /* push description and meta to align under the heading (not under the image) */
+            .info-card__description {
+                margin-left: calc(88px + 1rem);
+                margin-top: 0.5rem;
+            }
+
+            .info-card__meta {
+                margin-left: calc(88px + 1rem);
+                margin-top: 0.5rem;
+            }
+        }
     </style>
     <div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700 info-card">
         <div class="info-card__header flex items-start gap-5">
