@@ -505,7 +505,6 @@ textarea::-webkit-resizer {
   /* Title: Bold white text matching desktop */
   #branch-wrapper .branch-row>div:nth-child(2) p:nth-child(1),
   #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(2) p:nth-child(1) {
-    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif !important;
     font-size: 14px !important;
     font-weight: 600 !important;
     color: #f4f4f5 !important;
@@ -516,7 +515,6 @@ textarea::-webkit-resizer {
   /* Subtitle: Muted gray text matching desktop */
   #branch-wrapper .branch-row>div:nth-child(2) p:nth-child(2),
   #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(2) p:nth-child(2) {
-    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif !important;
     font-size: 12px !important;
     color: #71717a !important;
     /* Muted gray */
@@ -528,7 +526,6 @@ textarea::-webkit-resizer {
   /* Description: Clean gray text matching desktop */
   #branch-wrapper .branch-row>div:nth-child(2) p:nth-child(3),
   #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(2) p:nth-child(3) {
-    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif !important;
     font-size: 12px !important;
     line-height: 1.5 !important;
     color: #a1a1aa !important;
@@ -915,7 +912,10 @@ html.light-theme, :root.light-theme, body.light-theme {
     background-color: #e4e4e4 !important;
     font-weight: 600 !important;
   }
-  .branch-scroll .border-white\/10 {
+  #branch-wrapper .border-white\/10,
+  .branch-scroll .border-white\/10,
+  #branch-wrapper .border-b,
+  .branch-scroll .border-b {
     border-bottom-color: #e4e4e4 !important;
   }
 
@@ -1040,5 +1040,66 @@ html.light-theme, :root.light-theme, body.light-theme {
   }
   .line-number {
     color: #a0a0a0 !important;
+  }
+
+  /* Mobile history/experience log text visibility overrides in light mode */
+  #branch-wrapper .branch-row>div:nth-child(2) p:nth-child(1),
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(2) p:nth-child(1) {
+    color: #1a1a1a !important;
+  }
+  #branch-wrapper .branch-row>div:nth-child(2) p:nth-child(2),
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(2) p:nth-child(2) {
+    color: #6a737d !important;
+  }
+  #branch-wrapper .branch-row>div:nth-child(2) p:nth-child(3),
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(2) p:nth-child(3) {
+    color: #333333 !important;
+  }
+
+  /* Mobile Console Metadata Outputs in light mode */
+  /* Date Metadata */
+  #branch-wrapper .branch-row>div:nth-child(3),
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(3) {
+    color: #1a1a1a !important;
+  }
+  #branch-wrapper .branch-row>div:nth-child(3)::before,
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(3)::before {
+    color: #6a737d !important;
+  }
+
+  /* Author Metadata */
+  #branch-wrapper .branch-row>div:nth-child(4),
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(4) {
+    color: #1a1a1a !important;
+  }
+  #branch-wrapper .branch-row>div:nth-child(4)::before,
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(4)::before {
+    color: #6a737d !important;
+  }
+
+  /* Commit Metadata */
+  #branch-wrapper .branch-row>div:nth-child(5),
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(5) {
+    color: #1a1a1a !important;
+  }
+  #branch-wrapper .branch-row>div:nth-child(5)::before,
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(5)::before {
+    color: #6a737d !important;
+  }
+  #branch-wrapper .branch-row>div:nth-child(5) a,
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(5) a,
+  #branch-wrapper a,
+  .branch-scroll a {
+    color: #1a1a1a !important;
+    text-decoration: underline !important;
+    text-decoration-color: rgba(26, 26, 26, 0.4) !important;
+  }
+  #branch-wrapper .branch-row>div:nth-child(5) a:hover,
+  #branch-wrapper [class*="grid-cols-[58px"]:not(.header-row)>div:nth-child(5) a:hover,
+  #branch-wrapper a:hover,
+  .branch-scroll a:hover {
+    color: #000000 !important;
+    text-decoration: underline !important;
+    text-decoration-color: rgba(0, 0, 0, 0.8) !important;
   }
 }
