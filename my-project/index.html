@@ -12,9 +12,9 @@
   <div class="flex h-full flex-col">
     <!-- TITLE BAR -->
     <div class="title-bar bg-zinc-800 flex flex-row px-4 py-1 justify-between items-center border-b border-black">
-      <div class="flex gap-2 items-center min-w-0">
+      <div class="flex gap-2 items-center min-w-0 px-2 mx-2">
         <button type="button" id="sidebarToggle" aria-label="Toggle sidebar" aria-expanded="false"
-          class="sidebar-toggle hidden h-9 w-9 items-center justify-center rounded-md border border-zinc-600 text-zinc-200 transition hover:bg-zinc-700 hover:text-white">
+          class="sidebar-toggle hidden h-8 w-8 items-center justify-center text-gray-400 transition hover:text-gray-200">
           <i data-lucide="menu" aria-hidden="true" class="h-5 w-5"></i>
         </button>
         <div class="window-controls flex gap-1.5">
@@ -63,11 +63,6 @@
       <!-- Sidebar -->
       <div id="sidebarPanel"
         class="sidebar-panel flex h-full flex-col w-14 bg-zinc-800 pt-8 pb-4 gap-6 text-gray-400 items-center border-r border-black">
-        <button id="sidebarClose" type="button"
-          class="sidebar-close hidden scale-90 hover:text-gray-200 transition ease-in-out duration-300"
-          aria-label="Close sidebar">
-          <i data-lucide="x" class="scale-120"></i>
-        </button>
         <button class="scale-90 hover:text-gray-200 transition ease-in-out duration-300">
           <a href="https://github.com/filedward1" target="_blank">
             <i class="fa-brands fa-github scale-120"></i>

@@ -25,6 +25,18 @@ const EMAILJS_TEMPLATE_ID = "template_bezj6vs";
 let emailJsInitialized = false;
 const mobileSidebarBreakpoint = window.matchMedia("(max-width: 768px)");
 
+function updateSidebarToggleIcon(isOpen) {
+  const sidebarToggle = document.getElementById("sidebarToggle");
+
+  if (!sidebarToggle) return;
+
+  sidebarToggle.innerHTML = `<i data-lucide="${isOpen ? "x" : "menu"}" aria-hidden="true" class="h-5 w-5"></i>`;
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
 function setSidebarOpen(isOpen) {
   const sidebarPanel = document.getElementById("sidebarPanel");
   const sidebarBackdrop = document.getElementById("sidebarBackdrop");
@@ -43,11 +55,12 @@ function setSidebarOpen(isOpen) {
   if (sidebarToggle) {
     sidebarToggle.setAttribute("aria-expanded", String(isOpen));
   }
+
+  updateSidebarToggleIcon(isOpen);
 }
 
 function setupSidebarControls() {
   const sidebarToggle = document.getElementById("sidebarToggle");
-  const sidebarClose = document.getElementById("sidebarClose");
   const sidebarBackdrop = document.getElementById("sidebarBackdrop");
 
   if (!sidebarToggle || sidebarToggle.dataset.bound === "true") return;
@@ -57,10 +70,6 @@ function setupSidebarControls() {
   sidebarToggle.addEventListener("click", () => {
     setSidebarOpen(!document.body.classList.contains("sidebar-open"));
   });
-
-  if (sidebarClose) {
-    sidebarClose.addEventListener("click", closeSidebar);
-  }
 
   if (sidebarBackdrop) {
     sidebarBackdrop.addEventListener("click", closeSidebar);
