@@ -267,7 +267,7 @@ async function loadContent(tabName) {
       // create a consistent outer container matching projects card
       contentContainer.innerHTML = `
         <div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700">
-          <div id="branch-wrapper"></div>
+          <div id="branch-wrapper" data-branch="${currentBranch || "experience"}"></div>
         </div>
       `;
 
@@ -449,6 +449,7 @@ async function loadBranchContent(branch) {
     // If currently viewing history tab and a persistent wrapper exists, insert only the branch inner content
     const wrapper = contentContainer.querySelector("#branch-wrapper");
     if (wrapper) {
+      wrapper.setAttribute("data-branch", branch);
       try {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, "text/html");
