@@ -254,6 +254,8 @@ textarea::-webkit-resizer {
     top: 3.25rem;
     left: 0;
     bottom: 0;
+    height: auto !important;
+    padding-bottom: 1.5rem !important;
     z-index: 60;
     width: 3.5rem;
     padding-top: 0.875rem;
