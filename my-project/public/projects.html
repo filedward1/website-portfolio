@@ -38,6 +38,19 @@
 	.project-links {
 		margin-top: 1.35rem;
 	}
+
+	.project-card__layout {
+		display: block;
+		width: 100%;
+	}
+
+	.project-card__layout > .w-16 {
+		margin-bottom: 0.85rem;
+	}
+
+	.project-card__layout > .flex-1 {
+		width: 100%;
+	}
 }
 
 /* Desktop / Tablet: project cards use image left, content right (description under title) */
@@ -55,6 +68,12 @@
 }
 
 @media (min-width: 768px) {
+	.project-card__layout {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.25rem;
+	}
+
 	.project-card {
 		display: grid;
 		grid-template-columns: auto 1fr;
@@ -115,7 +134,7 @@
 <!-- Project Cards -->
 <div class="mb-8 animate-fade-in delay-1 space-y-5">
 	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
-		<div class="flex items-start gap-5">
+		<div class="project-card__layout">
 			<div class="w-16 h-16 flex items-center justify-center shrink-0">
 				<img src="src/assets/proj-logo/NutriXtract%20Logo.svg" alt="NutriXtract" class="w-14 h-14 object-contain" />
 			</div>
@@ -153,10 +172,10 @@
 		</div>
 	</div>
 
-	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
-		<div class="flex items-start gap-5">
-			<div class="w-16 h-16 flex items-center justify-center scale-200">
-				<img src="src/assets/proj-logo/Scaffled%20logo.svg" alt="Scaffl.ed" class="w-14 h-14 object-contain" />
+	<div class="bg-zinc-800 project-card rounded-lg p-4 shadow-lg border border-zinc-700">
+		<div class="project-card__layout">
+			<div class="w-16 h-16 flex items-center justify-center">
+				<img src="src/assets/proj-logo/Scaffled%20logo.svg" alt="Scaffl.ed" class="w-16 h-16 object-contain" />
 			</div>
 			<div class="flex-1 min-w-0">
 				<div class="flex items-start justify-between gap-4 project-header">
@@ -187,7 +206,7 @@
 	</div>
 
 	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
-		<div class="flex items-start gap-5">
+		<div class="project-card__layout">
 			<div class="w-16 h-16 flex items-center justify-center shrink-0">
 				<img src="src/assets/proj-logo/Auscura%20Logo.svg" alt="Auscura" class="w-14 h-14 object-contain" />
 			</div>
@@ -220,7 +239,7 @@
 	</div>
 
 	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
-		<div class="flex items-start gap-5">
+		<div class="project-card__layout">
 			<div class="w-16 h-16 flex items-center justify-center shrink-0">
 				<img src="src/assets/proj-logo/Reeco%20Logo.svg" alt="Reeco" class="w-14 h-14 object-contain" />
 			</div>
@@ -256,7 +275,7 @@
 	</div>
 
 	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
-		<div class="flex items-start gap-5">
+		<div class="project-card__layout">
 			<div class="w-16 h-16 flex items-center justify-center shrink-0">
 				<img src="src/assets/proj-logo/HomeScape%20Logo.svg" alt="HomeScape" class="w-14 h-14 object-contain" />
 			</div>
@@ -289,7 +308,7 @@
 	</div>
 
 	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
-		<div class="flex items-start gap-5">
+		<div class="project-card__layout">
 			<div class="w-16 h-16 flex items-center justify-center shrink-0">
 				<img src="src/assets/proj-logo/ClarifAi%20Logo.svg" alt="ClarfiAI" class="w-14 h-14 object-contain" />
 			</div>

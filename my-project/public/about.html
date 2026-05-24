@@ -87,6 +87,41 @@
         .tooltip-link:hover::after {
             opacity: 1;
         }
+        /* Mobile: stack the profile image above the title/subtitle and keep the description separate */
+        @media (max-width: 767px) {
+            .info-card {
+                display: block;
+            }
+
+            .info-card__header {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .info-card__image {
+                width: 80px;
+                height: 80px;
+                flex: 0 0 80px;
+            }
+
+            .info-card__heading h2 {
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+
+            .info-card__heading h3 {
+                font-size: 1rem;
+                line-height: 1.35;
+            }
+
+            .info-card__description,
+            .info-card__meta {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
         /* Desktop / Tablet: align description under title/subtitle while keeping image on left */
         @media (min-width: 768px) {
             .info-card {
