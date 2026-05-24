@@ -10,7 +10,7 @@ const tabFiles = {
 };
 
 const branchFiles = {
-  experience: "/experience.html",
+  experience: "/history.html",
   achievements: "/achievements.html",
   certifications: "/certifications.html",
 };
@@ -264,10 +264,12 @@ async function loadContent(tabName) {
     const html = await response.text();
     // If loading the history tab, keep a persistent outer card wrapper
     if (tabName === "history") {
+      currentBranch = "experience";
+      localStorage.setItem(ACTIVE_BRANCH_STORAGE_KEY, "experience");
       // create a consistent outer container matching projects card
       contentContainer.innerHTML = `
         <div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700">
-          <div id="branch-wrapper" data-branch="${currentBranch || "experience"}"></div>
+          <div id="branch-wrapper" data-branch="experience"></div>
         </div>
       `;
 
@@ -315,13 +317,9 @@ async function loadContent(tabName) {
       // Use setTimeout to ensure DOM is fully rendered
       setTimeout(() => {
         setupBranchSwitcher();
-        // History already renders experience content from history.html,
-        // so avoid an extra fetch that causes the double-load effect.
         if (tabName === "history") {
-          // Restore the last selected branch, defaulting to experience.
-          const branchToLoad = currentBranch || "experience";
-          currentBranch = branchToLoad;
-          loadBranchContent(branchToLoad);
+          // History already renders experience content from history.html,
+          // so avoid an extra fetch that causes the double-load effect.
         } else {
           // For achievements/certifications tabs, load the respective branch
           currentBranch = tabName;
