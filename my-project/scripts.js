@@ -524,11 +524,38 @@ function setupThemeToggle() {
   });
 }
 
+function setupMobileRipple() {
+  document.addEventListener("pointerdown", (e) => {
+    // Only trigger in mobile view (max-width: 768px) and for primary click/touch
+    if (e.button !== 0 || !window.matchMedia("(max-width: 768px)").matches) return;
+
+    // Create ripple element
+    const ripple = document.createElement("div");
+    ripple.className = "mobile-ripple";
+    ripple.style.left = `${e.clientX}px`;
+    ripple.style.top = `${e.clientY}px`;
+
+    document.body.appendChild(ripple);
+
+    // Clean up when animation ends, with a fallback timeout
+    let removed = false;
+    const removeRipple = () => {
+      if (!removed) {
+        removed = true;
+        ripple.remove();
+      }
+    };
+    ripple.addEventListener("animationend", removeRipple);
+    setTimeout(removeRipple, 1000);
+  });
+}
+
 const savedTab = localStorage.getItem(ACTIVE_TAB_STORAGE_KEY) || "about";
 const savedBranch = localStorage.getItem(ACTIVE_BRANCH_STORAGE_KEY) || "experience";
 currentBranch = savedBranch;
 setupSidebarControls();
 setupThemeToggle();
+setupMobileRipple();
 setActiveTab(savedTab);
 
 // Log window dimensions (debug)
