@@ -23,6 +23,63 @@ const EMAILJS_PUBLIC_KEY = "Q-XjxT_Chmj4tPCbs";
 const EMAILJS_SERVICE_ID = "service_tg3gq4s";
 const EMAILJS_TEMPLATE_ID = "template_bezj6vs";
 let emailJsInitialized = false;
+const mobileSidebarBreakpoint = window.matchMedia("(max-width: 768px)");
+
+function setSidebarOpen(isOpen) {
+  const sidebarPanel = document.getElementById("sidebarPanel");
+  const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+  const sidebarToggle = document.getElementById("sidebarToggle");
+
+  document.body.classList.toggle("sidebar-open", isOpen);
+
+  if (sidebarPanel) {
+    sidebarPanel.classList.toggle("is-open", isOpen);
+  }
+
+  if (sidebarBackdrop) {
+    sidebarBackdrop.classList.toggle("is-visible", isOpen);
+  }
+
+  if (sidebarToggle) {
+    sidebarToggle.setAttribute("aria-expanded", String(isOpen));
+  }
+}
+
+function setupSidebarControls() {
+  const sidebarToggle = document.getElementById("sidebarToggle");
+  const sidebarClose = document.getElementById("sidebarClose");
+  const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+
+  if (!sidebarToggle || sidebarToggle.dataset.bound === "true") return;
+
+  const closeSidebar = () => setSidebarOpen(false);
+
+  sidebarToggle.addEventListener("click", () => {
+    setSidebarOpen(!document.body.classList.contains("sidebar-open"));
+  });
+
+  if (sidebarClose) {
+    sidebarClose.addEventListener("click", closeSidebar);
+  }
+
+  if (sidebarBackdrop) {
+    sidebarBackdrop.addEventListener("click", closeSidebar);
+  }
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeSidebar();
+    }
+  });
+
+  mobileSidebarBreakpoint.addEventListener("change", (event) => {
+    if (!event.matches) {
+      closeSidebar();
+    }
+  });
+
+  sidebarToggle.dataset.bound = "true";
+}
 
 function initEmailJs() {
   if (!window.emailjs) return false;
@@ -439,6 +496,7 @@ function ensureTooltipLinks() {
 const savedTab = localStorage.getItem(ACTIVE_TAB_STORAGE_KEY) || "about";
 const savedBranch = localStorage.getItem(ACTIVE_BRANCH_STORAGE_KEY) || "experience";
 currentBranch = savedBranch;
+setupSidebarControls();
 setActiveTab(savedTab);
 
 // Log window dimensions (debug)
