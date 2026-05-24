@@ -501,10 +501,34 @@ function ensureTooltipLinks() {
 }
 
 // Initialize with the last active tab if available
+// Initialize theme and toggle setup
+const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+if (savedTheme === "light") {
+  document.documentElement.classList.add("light-theme");
+  document.body.classList.add("light-theme");
+}
+
+function setupThemeToggle() {
+  const themeToggle = document.getElementById("themeToggle");
+  console.log("setupThemeToggle: button found:", themeToggle);
+  if (!themeToggle) {
+    console.error("Theme toggle button was not found in the DOM!");
+    return;
+  }
+  themeToggle.addEventListener("click", () => {
+    console.log("Theme toggle button clicked!");
+    const isLight = document.documentElement.classList.toggle("light-theme");
+    document.body.classList.toggle("light-theme", isLight);
+    console.log("light-theme class toggled. Active:", isLight, "HTML classes:", document.documentElement.className, "Body classes:", document.body.className);
+    localStorage.setItem("portfolio-theme", isLight ? "light" : "dark");
+  });
+}
+
 const savedTab = localStorage.getItem(ACTIVE_TAB_STORAGE_KEY) || "about";
 const savedBranch = localStorage.getItem(ACTIVE_BRANCH_STORAGE_KEY) || "experience";
 currentBranch = savedBranch;
 setupSidebarControls();
+setupThemeToggle();
 setActiveTab(savedTab);
 
 // Log window dimensions (debug)
