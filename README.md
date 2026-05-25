@@ -58,6 +58,7 @@ website-portfolio/
 
 The portfolio presents the profile of **Fil Edward F. Buitizon**, a Computer Science student at the **University of the East - Manila** (graduating June 2026).
 Notable highlights showcased:
+
 - **NutriXtract**: Led development of an AI-driven React Native + FastAPI + Supabase thesis project to extract and interpret nutritional facts with YOLO. Presented the paper at **IEEE AAIML 2026 in Tokyo, Japan** and got selected for **HCI International 2025 in Sweden**.
 - **Auscura**: IoT bioacoustic poultry health monitor startup project (Top 20 Finalist in DisruptorX).
 - **Reeco**: Circular economy swapping mobile platform (Blue Hacks 2026).
@@ -71,10 +72,13 @@ Notable highlights showcased:
 Follow these steps to spin up the local development environment:
 
 ### Prerequisites
+
 Make sure you have **Node.js** (v18+) and **npm** installed on your system.
 
 ### Steps
+
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/filedward1/website-portfolio.git
    cd website-portfolio
@@ -82,12 +86,14 @@ Make sure you have **Node.js** (v18+) and **npm** installed on your system.
 
 2. **Install dependencies**:
    Run the installation command at the workspace root (which will trigger a post-install to setup `my-project`):
+
    ```bash
    npm install
    ```
 
 3. **Run the local dev server**:
    Navigate into `my-project` and run Vite:
+
    ```bash
    cd my-project
    npm run dev
@@ -104,6 +110,7 @@ Make sure you have **Node.js** (v18+) and **npm** installed on your system.
 ## 🌐 Deployment
 
 The site is configured to build and deploy automatically on **Vercel** using the root `vercel.json` and `package.json` specifications:
+
 - **Build Command**: `cd my-project && npm run build`
 - **Output Directory**: `my-project/dist` (Vite's default output)
-- **Deployment URL**: [nutrixtract.vercel.app](https://nutrixtract.vercel.app/)
+- **Deployment URL**: [filedward.me](https://filedward.me); for vercel domain: [filedwardb.vercel.app](https://filedwardb.vercel.app/)
