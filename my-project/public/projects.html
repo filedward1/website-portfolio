@@ -2,7 +2,7 @@
 	.tooltip-link {
 		position: relative;
 	}
-	
+
 	.tooltip-link::after {
 		content: attr(data-tooltip);
 		position: absolute;
@@ -21,102 +21,104 @@
 		transition: opacity 0s;
 		z-index: 10;
 	}
-	
+
 	.tooltip-link:hover::after {
 		opacity: 1;
 	}
 
-/* Mobile: add spacing between tech stack and link icons */
-@media (max-width: 767px) {
-	.project-meta {
+	/* Mobile: add spacing between tech stack and link icons */
+	@media (max-width: 767px) {
+		.project-meta {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+			align-items: flex-start;
+		}
+
+		.project-links {
+			margin-top: 1.35rem;
+		}
+
+		.project-card__layout {
+			display: block;
+			width: 100%;
+		}
+
+		.project-card__layout>.w-16 {
+			margin-bottom: 0.85rem;
+		}
+
+		.project-card__layout>.flex-1 {
+			width: 100%;
+		}
+	}
+
+	/* Desktop / Tablet: project cards use image left, content right (description under title) */
+	/* Mobile: stack header content so date sits under subtitle */
+	.project-header {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		align-items: flex-start;
-	}
-
-	.project-links {
-		margin-top: 1.35rem;
-	}
-
-	.project-card__layout {
-		display: block;
-		width: 100%;
-	}
-
-	.project-card__layout > .w-16 {
-		margin-bottom: 0.85rem;
-	}
-
-	.project-card__layout > .flex-1 {
-		width: 100%;
-	}
-}
-
-/* Desktop / Tablet: project cards use image left, content right (description under title) */
-/* Mobile: stack header content so date sits under subtitle */
-.project-header {
-	display: flex;
-	flex-direction: column;
-	gap: 0.25rem;
-}
-.project-date {
-	white-space: normal;
-	margin-top: 0.25rem;
-	font-size: 0.95rem;
-	color: #94a3b8; /* text-zinc-500 fallback */
-}
-
-@media (min-width: 768px) {
-	.project-card__layout {
-		display: flex;
-		align-items: flex-start;
-		gap: 1.25rem;
-	}
-
-	.project-card {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: 1rem;
-		align-items: start;
-	}
-
-	.project-card > .flex.items-start {
-		display: contents;
-	}
-
-	.project-card .w-16 {
-		width: 88px;
-		height: 88px;
-		flex: 0 0 88px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	/* Keep logos fully visible and centered on desktop by containing them */
-	.project-card img {
-		width: auto;
-		max-width: 72px;
-		height: auto;
-		max-height: 72px;
-		object-fit: contain;
-		display: block;
-		margin: 0 auto;
-	}
-
-	.project-header {
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
+		gap: 0.25rem;
 	}
 
 	.project-date {
-		white-space: nowrap;
-		margin-top: 0;
+		white-space: normal;
+		margin-top: 0.25rem;
 		font-size: 0.95rem;
+		color: #94a3b8;
+		/* text-zinc-500 fallback */
 	}
-}
+
+	@media (min-width: 768px) {
+		.project-card__layout {
+			display: flex;
+			align-items: flex-start;
+			gap: 1.25rem;
+		}
+
+		.project-card {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			gap: 1rem;
+			align-items: start;
+		}
+
+		.project-card>.flex.items-start {
+			display: contents;
+		}
+
+		.project-card .w-16 {
+			width: 88px;
+			height: 88px;
+			flex: 0 0 88px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		/* Keep logos fully visible and centered on desktop by containing them */
+		.project-card img {
+			width: auto;
+			max-width: 72px;
+			height: auto;
+			max-height: 72px;
+			object-fit: contain;
+			display: block;
+			margin: 0 auto;
+		}
+
+		.project-header {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.project-date {
+			white-space: nowrap;
+			margin-top: 0;
+			font-size: 0.95rem;
+		}
+	}
 </style>
 
 <!-- Projects Code Display -->
@@ -127,7 +129,8 @@
 	</div>
 	<div class="flex">
 		<span class="line-number px-4">2</span>
-		<span class="syntax-keyword">export const</span>&nbsp;<span class="syntax-tag">projects</span>&nbsp;<span class="syntax-variable">=</span>&nbsp;<span class="syntax-bracket">[</span>
+		<span class="syntax-keyword">export const</span>&nbsp;<span class="syntax-tag">projects</span>&nbsp;<span
+			class="syntax-variable">=</span>&nbsp;<span class="syntax-bracket">[</span>
 	</div>
 </div>
 
@@ -136,7 +139,8 @@
 	<div class="bg-zinc-800 project-card rounded-lg p-6 shadow-lg border border-zinc-700">
 		<div class="project-card__layout">
 			<div class="w-16 h-16 flex items-center justify-center shrink-0">
-				<img src="src/assets/proj-logo/NutriXtract%20Logo.svg" alt="NutriXtract" class="w-14 h-14 object-contain" />
+				<img src="src/assets/proj-logo/NutriXtract%20Logo.svg" alt="NutriXtract"
+					class="w-14 h-14 object-contain" />
 			</div>
 			<div class="flex-1 min-w-0">
 				<div class="flex items-start justify-between gap-4 project-header">
@@ -147,57 +151,38 @@
 					<p class="text-zinc-500 text-sm whitespace-nowrap project-date">August 2024 – May 2025</p>
 				</div>
 				<p class="text-gray-300 mt-4 leading-7">
-					Enhancing nutritional data literacy through an AI-driven pipeline for object detection and label interpretation. Led development of a React Native, FastAPI, and Supabase mobile app that uses OCR and YOLO-based object detection to interpret nutritional data, increasing user nutritional awareness from 31% to 92%. Engineered an explainable AI pipeline using large language models to convert raw data into personalized dietary insights, achieving an F1-score of 0.8612 and a 2.19% character error rate validated by medical professionals. Published and presented the technical paper at AAIML 2026 at Chuo University in Tokyo, Japan (IEEE SMCS) and earned selection for Global Presentation at HCI International 2025 in Gothenburg, Sweden. Qualified for AppCon 2024 as one of the Top 90 teams out of 178 applicants nationwide.
+					Enhancing nutritional data literacy through an AI-driven pipeline for object detection and label
+					interpretation. Led development of a React Native, FastAPI, and Supabase mobile app that uses OCR
+					and YOLO-based object detection to interpret nutritional data, increasing user nutritional awareness
+					from 31% to 92%. Engineered an explainable AI pipeline using large language models to convert raw
+					data into personalized dietary insights, achieving an F1-score of 0.8612 and a 2.19% character error
+					rate validated by medical professionals. Published and presented the technical paper at AAIML 2026
+					at Chuo University in Tokyo, Japan (IEEE SMCS) and earned selection for Global Presentation at HCI
+					International 2025 in Gothenburg, Sweden. Qualified for AppCon 2024 as one of the Top 90 teams out
+					of 178 applicants nationwide.
 				</p>
-					<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
-						<div class="flex flex-wrap gap-2">
+				<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
+					<div class="flex flex-wrap gap-2">
 						<span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-sm">React Native</span>
 						<span class="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-sm">FastAPI</span>
 						<span class="px-3 py-1 rounded-md bg-violet-500/20 text-violet-300 text-sm">Supabase</span>
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">YOLO</span>
 					</div>
-						<div class="flex gap-3 project-links">
-						<a href="https://canva.link/5qvu3ox9qdc8rl5" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Poster">
+					<div class="flex gap-3 project-links">
+						<a href="https://canva.link/5qvu3ox9qdc8rl5" target="_blank" rel="noopener noreferrer"
+							class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Poster">
 							<i data-lucide="newspaper" class="w-5 h-5"></i>
 						</a>
-						<a href="https://nutrixtract.vercel.app/" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Website">
+						<a href="https://nutrixtract.vercel.app/" target="_blank" rel="noopener noreferrer"
+							class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Website">
 							<i data-lucide="globe" class="w-5 h-5"></i>
 						</a>
-						<a href="https://github.com/SeanArnisto/nutrivision-frontend-main" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Repository">
+						<a href="https://github.com/SeanArnisto/nutrivision-frontend-main" target="_blank"
+							rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Repository">
 							<i data-lucide="folder-git-2" class="w-5 h-5"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="bg-zinc-800 project-card rounded-lg p-4 shadow-lg border border-zinc-700">
-		<div class="project-card__layout">
-			<div class="w-16 h-16 flex items-center justify-center">
-				<img src="src/assets/proj-logo/Scaffled%20logo.svg" alt="Scaffl.ed" class="w-16 h-16 object-contain" />
-			</div>
-			<div class="flex-1 min-w-0">
-				<div class="flex items-start justify-between gap-4 project-header">
-					<div>
-						<h2 class="text-2xl font-bold syntax-string">Scaffl.ed</h2>
-						<p class="text-zinc-400 mt-1">University of the East — Manila | Startup Project</p>
-					</div>
-					<p class="text-zinc-500 text-sm whitespace-nowrap project-date">November 2025</p>
-				</div>
-				<p class="text-gray-300 mt-4 leading-7">
-					AI-driven adaptive learning for programming education. Formulated the startup strategy for an AI-driven adaptive learning platform that uses eye and mouse tracking to support programming students. Engineered a six-step growth roadmap and freemium-to-institutional revenue model for expansion from school pilots to a national rollout. Won 3rd Place at the PSC x RPC 2025 Philippine Startup Challenge X - NCR Regional Pitching Competition.
-				</p>
-					<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
-						<div class="flex flex-wrap gap-2">
-						<span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-sm">AI</span>
-						<span class="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-sm">Eye Tracking</span>
-						<span class="px-3 py-1 rounded-md bg-violet-500/20 text-violet-300 text-sm">Mouse Tracking</span>
-						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">EdTech</span>
-					</div>
-						<div class="flex gap-3 project-links">
-						<a href="https://canva.link/ox7modfhmwpuijc" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
-							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
 					</div>
 				</div>
@@ -219,17 +204,26 @@
 					<p class="text-zinc-500 text-sm whitespace-nowrap project-date">April 2026</p>
 				</div>
 				<p class="text-gray-300 mt-4 leading-7">
-					AI-powered bioacoustic poultry health monitoring. Conceptualized Auscura, an IoT-based idea using low-cost microphones and AI to detect respiratory distress in poultry through sound analysis; developed a high-fidelity prototype in Figma. Selected as a Top 20 finalist out of 305+ applicants nationwide and advanced to national demo events to showcase potential impact on food security (SDG 2). Proposed a government-funded framework targeting the Department of Agriculture and LGUs to mitigate disease outbreaks in the ₱300B+ Philippine poultry industry through strategic public-sector partnerships.
+					AI-powered bioacoustic poultry health monitoring. Conceptualized Auscura, an IoT-based idea using
+					low-cost microphones and AI to detect respiratory distress in poultry through sound analysis;
+					developed a high-fidelity prototype in Figma. Selected as a Top 20 finalist out of 305+ applicants
+					nationwide and advanced to national demo events to showcase potential impact on food security (SDG
+					2). Proposed a government-funded framework targeting the Department of Agriculture and LGUs to
+					mitigate disease outbreaks in the ₱300B+ Philippine poultry industry through strategic public-sector
+					partnerships.
 				</p>
-					<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
-						<div class="flex flex-wrap gap-2">
+				<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
+					<div class="flex flex-wrap gap-2">
 						<span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-sm">IoT</span>
 						<span class="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-sm">Audio AI</span>
 						<span class="px-3 py-1 rounded-md bg-violet-500/20 text-violet-300 text-sm">Figma</span>
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">Public Sector</span>
 					</div>
-						<div class="flex gap-3 project-links">
-						<a href="https://www.canva.com/design/DAHCI9qqZ14/hIAMkawVEfCayZ8JCkmoWQ/view?utm_content=DAHCI9qqZ14&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
+					<div class="flex gap-3 project-links">
+						<a href="https://www.canva.com/design/DAHCI9qqZ14/hIAMkawVEfCayZ8JCkmoWQ/view?utm_content=DAHCI9qqZ14&utm_campaign=designshare&utm_medium=link&utm_source=viewer"
+							target="_blank" rel="noopener noreferrer"
+							class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -252,20 +246,28 @@
 					<p class="text-zinc-500 text-sm whitespace-nowrap project-date">March 2026</p>
 				</div>
 				<p class="text-gray-300 mt-4 leading-7">
-					Community-driven mobile platform for urban circular economy. Developed a mobile-first circular economy platform for swapping secondhand items with a built-in engine that quantifies waste diverted and CO2 saved. Architected a cloud-hosted framework and B2G revenue model for LGU analytics and a multi-city rollout across the Philippines.
+					Community-driven mobile platform for urban circular economy. Developed a mobile-first circular
+					economy platform for swapping secondhand items with a built-in engine that quantifies waste diverted
+					and CO2 saved. Architected a cloud-hosted framework and B2G revenue model for LGU analytics and a
+					multi-city rollout across the Philippines.
 				</p>
-					<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
-						<div class="flex flex-wrap gap-2">
+				<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
+					<div class="flex flex-wrap gap-2">
 						<span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-sm">Mobile</span>
-						<span class="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-sm">Circular Economy</span>
+						<span class="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-sm">Circular
+							Economy</span>
 						<span class="px-3 py-1 rounded-md bg-violet-500/20 text-violet-300 text-sm">Cloud</span>
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">B2G</span>
 					</div>
-						<div class="flex gap-3 project-links">
-						<a href="https://canva.link/6d5agd37jlh3sfb" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
+					<div class="flex gap-3 project-links">
+						<a href="https://canva.link/6d5agd37jlh3sfb" target="_blank" rel="noopener noreferrer"
+							class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
-						<a href="https://github.com/compsat/bh26-Chekken" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Repository">
+						<a href="https://github.com/compsat/bh26-Chekken" target="_blank" rel="noopener noreferrer"
+							class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Repository">
 							<i data-lucide="folder-git-2" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -288,17 +290,22 @@
 					<p class="text-zinc-500 text-sm whitespace-nowrap project-date">December 2025</p>
 				</div>
 				<p class="text-gray-300 mt-4 leading-7">
-					A GenAI-powered fintech gamification ecosystem. Conceptualized HomeScape, a micro-gamified loyalty system for the Home Credit app that uses virtual home-building mechanics to incentivize financial microtasks and referrals. Built a high-fidelity prototype in Figma illustrating multi-phase progression, streak mechanics, and an AI mascot to reinforce financial literacy.
+					A GenAI-powered fintech gamification ecosystem. Conceptualized HomeScape, a micro-gamified loyalty
+					system for the Home Credit app that uses virtual home-building mechanics to incentivize financial
+					microtasks and referrals. Built a high-fidelity prototype in Figma illustrating multi-phase
+					progression, streak mechanics, and an AI mascot to reinforce financial literacy.
 				</p>
-					<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
-						<div class="flex flex-wrap gap-2">
+				<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
+					<div class="flex flex-wrap gap-2">
 						<span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-sm">GenAI</span>
 						<span class="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-sm">Fintech</span>
 						<span class="px-3 py-1 rounded-md bg-violet-500/20 text-violet-300 text-sm">Gamification</span>
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">Figma</span>
 					</div>
-						<div class="flex gap-3 project-links">
-						<a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
+					<div class="flex gap-3 project-links">
+						<a href="https://canva.link/dbcdk2jtf7pc6d3" target="_blank" rel="noopener noreferrer"
+							class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
 					</div>
@@ -321,20 +328,28 @@
 					<p class="text-zinc-500 text-sm whitespace-nowrap project-date">May 2025</p>
 				</div>
 				<p class="text-gray-300 mt-4 leading-7">
-					LLM-powered automated quiz generation system. Built a mobile application that uses large language models to generate concept-based quizzes from uploaded PDF documents for active recall and subject mastery. Won Grand Champion at Hackafest 2025 and swept Best in UI, Best in Presentation, and Best in Prototype.
+					LLM-powered automated quiz generation system. Built a mobile application that uses large language
+					models to generate concept-based quizzes from uploaded PDF documents for active recall and subject
+					mastery. Won Grand Champion at Hackafest 2025 and swept Best in UI, Best in Presentation, and Best
+					in Prototype.
 				</p>
-					<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
-						<div class="flex flex-wrap gap-2">
+				<div class="flex flex-wrap gap-2 mt-5 justify-between items-center project-meta">
+					<div class="flex flex-wrap gap-2">
 						<span class="px-3 py-1 rounded-md bg-blue-500/20 text-blue-300 text-sm">LLMs</span>
 						<span class="px-3 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-sm">Mobile App</span>
-						<span class="px-3 py-1 rounded-md bg-violet-500/20 text-violet-300 text-sm">PDF Processing</span>
+						<span class="px-3 py-1 rounded-md bg-violet-500/20 text-violet-300 text-sm">PDF
+							Processing</span>
 						<span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 text-sm">Education</span>
 					</div>
-						<div class="flex gap-3 project-links">
-						<a href="https://canva.link/c0chxdkdk5bmhtx" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Presentation">
+					<div class="flex gap-3 project-links">
+						<a href="https://canva.link/c0chxdkdk5bmhtx" target="_blank" rel="noopener noreferrer"
+							class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Presentation">
 							<i data-lucide="presentation" class="w-5 h-5"></i>
 						</a>
-						<a href="https://github.com/filedward1/frontend-hackathon" target="_blank" rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition" data-tooltip="View Repository">
+						<a href="https://github.com/filedward1/frontend-hackathon" target="_blank"
+							rel="noopener noreferrer" class="tooltip-link text-zinc-400 hover:text-zinc-100 transition"
+							data-tooltip="View Repository">
 							<i data-lucide="folder-git-2" class="w-5 h-5"></i>
 						</a>
 					</div>

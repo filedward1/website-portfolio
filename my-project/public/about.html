@@ -10,7 +10,8 @@
         <span class="line-number px-4">2</span>
         <span class="syntax-bracket">&lt;
         </span><span class="syntax-keyword">html</span>&nbsp;
-        <span class="syntax-tag">lang</span><span class="syntax-variable">=</span><span class="syntax-string">"en"</span>
+        <span class="syntax-tag">lang</span><span class="syntax-variable">=</span><span
+            class="syntax-string">"en"</span>
         <span class="syntax-bracket">&gt;</span>
     </div>
     <div class="flex"> <!-- 3 <head> -->
@@ -40,7 +41,8 @@
         <span class="indent-1">&nbsp;</span><span class="syntax-bracket">&lt;</span>
         <span class="syntax-keyword">link</span>&nbsp;<span class="syntax-tag">href</span><span
             class="syntax-variable">=</span><span class="syntax-string">"/style.css"</span>&nbsp;<span
-            class="syntax-tag">rel</span><span class="syntax-variable">=</span><span class="syntax-string">"stylesheet"</span>
+            class="syntax-tag">rel</span><span class="syntax-variable">=</span><span
+            class="syntax-string">"stylesheet"</span>
         <span class="syntax-bracket">&gt;</span>
     </div>
     <div class="flex"> <!-- 7 </head> -->
@@ -64,7 +66,7 @@
         .tooltip-link {
             position: relative;
         }
-        
+
         .tooltip-link::after {
             content: attr(data-tooltip);
             position: absolute;
@@ -83,10 +85,11 @@
             transition: opacity 0s;
             z-index: 10;
         }
-        
+
         .tooltip-link:hover::after {
             opacity: 1;
         }
+
         /* Mobile: stack the profile image above the title/subtitle and keep the description separate */
         @media (max-width: 767px) {
             .info-card {
@@ -122,6 +125,7 @@
                 margin-top: 1rem;
             }
         }
+
         /* Desktop / Tablet: align description under title/subtitle while keeping image on left */
         @media (min-width: 768px) {
             .info-card {
@@ -155,7 +159,8 @@
     </style>
     <div class="bg-zinc-800 rounded-lg p-6 shadow-lg border border-zinc-700 info-card">
         <div class="info-card__header flex items-start gap-5">
-            <img src="src/assets/Me.jpg" alt="Profile Picture" class="info-card__image w-32 h-32 rounded-full shadow-lg object-cover shrink-0">
+            <img src="src/assets/Me.jpg" alt="Profile Picture"
+                class="info-card__image w-32 h-32 rounded-full shadow-lg object-cover shrink-0">
             <div class="info-card__heading flex flex-col min-w-0">
                 <h2 class="text-3xl font-bold syntax-string mb-2">Fil Edward F. Buitizon</h2>
                 <h3 class="text-xl font-bold syntax-keyword mb-0">Aspiring Developer</h3>
@@ -163,16 +168,21 @@
         </div>
         <div class="info-card__description mt-4">
             <p class="text-gray-300">
-                    Currently taking the course of computer science on my 4th year in University of the East, I am experienced
-                    technically
-                    when it comes to computer related projects from code programming to graphical designing. Skilled in using
-                    Adobe
-                    premiere pro and Photoshop for editing, and Python, C++, HTML, CSS and JavaScript language for programming but
-                    can also be flexible when using other applications and language. As I am experienced in dealing with people
-                    from being
-                    a staff at a cosplay event, I can work with teams with ease if needed while maintaining my time schedule for
-                    both work
-                    and school requirements
+                Currently taking the course of computer science on my 4th year in University of the East, I am
+                experienced
+                technically
+                when it comes to computer related projects from code programming to graphical designing. Skilled in
+                using
+                Adobe
+                premiere pro and Photoshop for editing, and Python, C++, HTML, CSS and JavaScript language for
+                programming but
+                can also be flexible when using other applications and language. As I am experienced in dealing with
+                people
+                from being
+                a staff at a cosplay event, I can work with teams with ease if needed while maintaining my time schedule
+                for
+                both work
+                and school requirements
             </p>
         </div>
         <div class="info-card__meta mt-4 flex gap-3 flex-wrap">
@@ -185,8 +195,8 @@
                 <span>Manila, PH</span>
             </div>
         </div>
-            </div>
     </div>
+</div>
 </div>
 
 <!-- Terminal Section -->
@@ -235,8 +245,8 @@
             <p class="text-white">View Here:</p>
             <p class="text-blue-400">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                Read: <a href="/src/assets/Buitizon_Resume.pdf" target="_blank"
-                    class="tooltip-link hover:underline" data-tooltip="Download Resume">Fil_Edward_Buitizon_Resume.pdf</a>
+                Read: <a href="/src/assets/Buitizon_CV.pdf" target="_blank" class="tooltip-link hover:underline"
+                    data-tooltip="Download CV">Fil_Edward_Buitizon_CV.pdf</a>
             </p>
             <span class="blink-cursor inline-block w-2 h-5 bg-[#34C759]"></span>
         </div>
