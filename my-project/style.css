@@ -23,6 +23,27 @@ select {
   cursor: url('/cursors/bibata-ice-small/link-20.png') 5 1, pointer;
 }
 
+a *,
+button *,
+summary *,
+[role='button'] *,
+label[for] *,
+[tabindex]:not([tabindex='-1']) * {
+  cursor: inherit;
+}
+
+/* Non-functional toolbar buttons/icons should keep the default arrow cursor */
+button[aria-label="Search"],
+button[aria-label="Terminal"],
+button[aria-label="Settings"],
+button[aria-label="Refresh"],
+button[aria-label="Search"] *,
+button[aria-label="Terminal"] *,
+button[aria-label="Settings"] *,
+button[aria-label="Refresh"] * {
+  cursor: url('/cursors/bibata-ice-small/pointer-20.png') 3 1, auto;
+}
+
 input,
 textarea,
 [contenteditable='true'] {
