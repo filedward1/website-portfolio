@@ -1163,3 +1163,27 @@ html.light-theme, :root.light-theme, body.light-theme {
     opacity: 0;
   }
 }
+
+/* Company links inside experience list */
+.company-link {
+  color: #71717a !important;
+  text-decoration: none !important;
+  font-family: inherit !important;
+  transition: color 0.2s ease;
+}
+.company-link:hover {
+  color: #f4f4f5 !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(244, 244, 245, 0.4) !important;
+}
+
+/* Light mode overrides for company links */
+html.light-theme .company-link,
+body.light-theme .company-link {
+  color: #6a737d !important;
+}
+html.light-theme .company-link:hover,
+body.light-theme .company-link:hover {
+  color: #1a1a1a !important;
+  text-decoration-color: rgba(26, 26, 26, 0.4) !important;
+}
